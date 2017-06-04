@@ -1,4 +1,5 @@
 public class Edge<T> implements Comparable<Edge> {
+  String ligne;
   Node<T> tail;
   Node<T> head;
   double weight;
@@ -11,6 +12,23 @@ public class Edge<T> implements Comparable<Edge> {
     this.tail = u;
     this.head = v;
     this.weight = weight;
+  }
+
+  public Edge(String ligne, Node u, Node v) {
+    this.ligne = ligne;
+    this.tail = u;
+    this.head = v;
+  }
+
+  public Edge(String ligne, Node u, Node v, double weight) {
+    this.ligne = ligne;
+    this.tail = u;
+    this.head = v;
+    this.weight = weight;
+  }
+
+  public String getLigne() {
+    return ligne;
   }
 
   public Node<T> getTail() {
@@ -33,7 +51,7 @@ public class Edge<T> implements Comparable<Edge> {
   }
 
   @Override
-  public String toString(){
+  public String toString() {
     return "Tail: " + tail.getNodeName() + " - Head: " + head.getNodeName() + " - Weight: " + weight;
   }
 

@@ -79,6 +79,7 @@ public class Metro {
     while (route.hasNext()) {
       LinkedHashMap linkedHashMap = route.next();
       if (linkedHashMap.get("type").equals("metro")) {
+        String ligne = linkedHashMap.get("ligne").toString();
         ArrayList arrets = (ArrayList) linkedHashMap.get("arrets");
         Iterator iterator = arrets.iterator();
         if (iterator.hasNext()) {
@@ -86,7 +87,7 @@ public class Metro {
           while (iterator.hasNext()) {
             Integer arret = Integer.parseInt(iterator.next().toString());
             Node<MetroNode> head = getNode(arret);
-            Edge<MetroNode> edge = new Edge(tail, head);
+            Edge<MetroNode> edge = new Edge(ligne, tail, head);
             G.addWeightedEdge(tail, head, getDistance(tail, head));
 //            G.addWeightedEdge(tail, head, 1d);
             tail = head;

@@ -4,14 +4,14 @@ import java.util.List;
 
 public class Node<T> implements Comparable<Node<T>> {
   T node;
-  List<Edge> neighbors;
+  List<Edge<T>> neighbors;
 
   public Node(T node) {
     this.node = node;
     this.neighbors = new ArrayList<>();
   }
 
-  public Node(T node, List<Edge> neighbors) {
+  public Node(T node, List<Edge<T>> neighbors) {
     this.node = node;
     this.neighbors = neighbors;
   }
@@ -20,13 +20,13 @@ public class Node<T> implements Comparable<Node<T>> {
     this.neighbors.add(u);
   }
 
-  public List<Edge> getNeighbors() {
+  public List<Edge<T>> getNeighbors() {
     return neighbors;
   }
 
   public List<Node<T>> getListNeighbors() {
     List<Node<T>> listOfNodes = new ArrayList<>();
-    Iterator<Edge> iterator = neighbors.iterator();
+    Iterator<Edge<T>> iterator = neighbors.iterator();
     Edge edgeIteration;
     Node tail, head;
     while (iterator.hasNext()) {
