@@ -21,7 +21,6 @@ src/facebook_combined.txt
 .mtj.tmp/
 
 # Package Files #
-*.jar
 *.war
 *.ear
 *.zip
