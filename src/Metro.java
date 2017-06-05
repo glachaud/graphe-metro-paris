@@ -239,18 +239,18 @@ public class Metro {
 //    }
 
 
-    System.out.println("--------------");
+    // System.out.println("--------------");
     DijkstraSP dijkstraSP1 = nodeDijkstraSPHashMap.get(metro.getNode("Porte d'Auteuil"));
     Stack<Node<Station>> nodeStack1 = dijkstraSP1.shortestPathTo(metro.getNode("Pointe du Lac"));
     Double distance = 0d;
 
 
-    Stack<Node<Station>> nodeStack2 = metro.getLongestShortestPath();
-    while (!nodeStack2.isEmpty()) {
-      distance += 1;
-      Node<Station> node = nodeStack2.pop();
-      System.out.println(node.getNodeName());
-    }
+//    Stack<Node<Station>> nodeStack2 = metro.getLongestShortestPath();
+//    while (!nodeStack2.isEmpty()) {
+//      distance += 1;
+//      Node<Station> node = nodeStack2.pop();
+//      System.out.println(node.getNodeName());
+//    }
 
 
 
@@ -265,13 +265,22 @@ public class Metro {
     }
     Set<Node> nodeSet1 = breadthFirstPaths.keySet();
     Iterator<Node> nodeIterator2 = nodeSet1.iterator();
+
+    Map<Edge, Boolean> edgesVisited = new HashMap<>();
+    Iterator<Edge> edgeIterator9 = graph.getAllEdges().iterator();
+    while(edgeIterator9.hasNext()){
+      Edge edge9 = edgeIterator9.next();
+      edgesVisited.put(edge9, false);
+    }
     try{
+
       PrintWriter writer = new PrintWriter("console-output.txt", "UTF-8");
       while (nodeIterator2.hasNext()) {
         Node node = nodeIterator2.next();
         BreadthFirstPaths breadthFirstPaths1 = breadthFirstPaths.get(node);
         Map<Edge, Double> edgeEccentricities = breadthFirstPaths1.getEdgeEccentricity();
         Set<Edge> edges = edgeEccentricities.keySet();
+        Map<Edge, Boolean> edgesVisited7 = breadthFirstPaths1.getEdgesVisited();
         Iterator<Edge> edgeIterator = edges.iterator();
         while (edgeIterator.hasNext()) {
           Edge edge = edgeIterator.next();
@@ -279,6 +288,9 @@ public class Metro {
             edgeEccentricity.put(edge, edgeEccentricity.get(edge) + edgeEccentricities.get(edge));
           } else {
             edgeEccentricity.put(edge, edgeEccentricities.get(edge));
+          }
+          if(edgesVisited7.get(edge)){
+            edgesVisited.put(edge, true);
           }
         }
       }
@@ -294,6 +306,16 @@ public class Metro {
         writer1.println(edges[i] + ": " + eccentricities[i]);
       }
       writer1.close();
+
+      PrintWriter writer2 = new PrintWriter("edges.txt", "UTF-8");
+      Edge[] edges71 = Arrays.copyOf(edgesVisited.keySet().toArray(), edgesVisited.keySet().size(), Edge[].class);
+      Boolean[] visited = Arrays.copyOf(edgesVisited.values().toArray(), edgesVisited.values().size(), Boolean[].class);
+      for(int i = 0; i < edges71.length; i++) {
+        writer2.println(edges71[i] + ": " + visited[i]);
+      }
+      writer2.close();
+      System.out.println(edgesVisited.size());
+      System.out.println(graph.getAllEdges().size());
 
     } catch (IOException e) {
       // do something

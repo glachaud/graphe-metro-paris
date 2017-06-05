@@ -50,6 +50,12 @@ public class Edge<T> implements Comparable<Edge> {
     return nodes;
   }
 
+  public Boolean equals(Edge u) {
+    if(this.tail == u.getTail() && this.head == u.getHead() && this.weight == u.getWeight()) {
+      return true;
+    }
+    return false;
+  }
   @Override
   public String toString() {
     return "Tail: " + tail.getNodeName() + " - Head: " + head.getNodeName() + " - Weight: " + weight;

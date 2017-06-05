@@ -114,8 +114,18 @@ public class GraphList<T> {
   public void addWeightedEdge(Node u, Node v, Double weight) {
     Edge newEdge = new Edge(u, v, weight);
     if (adj.indexOf(u) > -1 && adj.indexOf(v) > -1) {
-      adj.get(adj.indexOf(u)).addEdge(newEdge);
-      edgeCount++;
+      Iterator<Edge<T>> edgeIterator = u.getNeighbors().iterator();
+      Boolean exists = false;
+      while(edgeIterator.hasNext()) {
+        Edge<T> edge = edgeIterator.next();
+        if (edge.equals(newEdge)) {
+          exists= true;
+        }
+      }
+      if(!exists) {
+        adj.get(adj.indexOf(u)).addEdge(newEdge);
+        edgeCount++;
+      }
     } else {
       System.out.println("This edge couldn't be added to the graph");
     }
