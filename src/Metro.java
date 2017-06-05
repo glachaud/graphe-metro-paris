@@ -266,16 +266,6 @@ public class Metro {
     Set<Node> nodeSet1 = breadthFirstPaths.keySet();
     Iterator<Node> nodeIterator2 = nodeSet1.iterator();
     try{
-      Double max = 0d;
-      Double secondMax = 0d;
-      Double thirdMax = 0d;
-      Double fourthMax = 0d;
-      Double fifthMax = 0d;
-      Edge maxEdge = new Edge(metro.getNode("Saint-Lazare"), metro.getNode("Liberté"));
-      Edge secondMaxEdge = new Edge(metro.getNode("Saint-Lazare"), metro.getNode("Liberté"));
-      Edge thirdMaxEdge = new Edge(metro.getNode("Saint-Lazare"), metro.getNode("Liberté"));
-      Edge fourthMaxEdge = new Edge(metro.getNode("Saint-Lazare"), metro.getNode("Liberté"));
-      Edge fifthMaxEdge = new Edge(metro.getNode("Saint-Lazare"), metro.getNode("Liberté"));
       PrintWriter writer = new PrintWriter("console-output.txt", "UTF-8");
       while (nodeIterator2.hasNext()) {
         Node node = nodeIterator2.next();
@@ -292,72 +282,35 @@ public class Metro {
           }
         }
       }
-      Set<Edge> edges1 = edgeEccentricity.keySet();
-      Iterator<Edge> edgeIterator1 = edges1.iterator();
-
-      while (edgeIterator1.hasNext()) {
-        Edge edge = edgeIterator1.next();
-        writer.println("edge: " + edge + ", eccentricity: " + edgeEccentricity.get(edge));
-        if(edgeEccentricity.get(edge) > max) {
-          max = edgeEccentricity.get(edge);
-          maxEdge = edge;
-        }
-      }
-      edges1 = edgeEccentricity.keySet();
-      edgeIterator1 = edges1.iterator();
-
-      while (edgeIterator1.hasNext()) {
-        Edge edge = edgeIterator1.next();
-        if(edgeEccentricity.get(edge) > secondMax && edgeEccentricity.get(edge) < max) {
-          secondMax = edgeEccentricity.get(edge);
-          secondMaxEdge = edge;
-        }
-      }
-
-      edges1 = edgeEccentricity.keySet();
-      edgeIterator1 = edges1.iterator();
-
-      while (edgeIterator1.hasNext()) {
-        Edge edge = edgeIterator1.next();
-        if(edgeEccentricity.get(edge) > thirdMax && edgeEccentricity.get(edge) < secondMax) {
-          thirdMax = edgeEccentricity.get(edge);
-          thirdMaxEdge = edge;
-        }
-      }
-
-      edges1 = edgeEccentricity.keySet();
-      edgeIterator1 = edges1.iterator();
-
-      while (edgeIterator1.hasNext()) {
-        Edge edge = edgeIterator1.next();
-        if(edgeEccentricity.get(edge) > fourthMax && edgeEccentricity.get(edge) < thirdMax) {
-          fourthMax = edgeEccentricity.get(edge);
-          fourthMaxEdge = edge;
-        }
-      }
-
-      edges1 = edgeEccentricity.keySet();
-      edgeIterator1 = edges1.iterator();
-
-      while (edgeIterator1.hasNext()) {
-        Edge edge = edgeIterator1.next();
-        if(edgeEccentricity.get(edge) > fifthMax && edgeEccentricity.get(edge) < fourthMax) {
-          fifthMax = edgeEccentricity.get(edge);
-          fifthMaxEdge = edge;
-        }
-      }
-
-
-      System.out.println("edge: " + maxEdge + ", eccentricity: " + max);
-      System.out.println("edge: " + secondMaxEdge + ", eccentricity: " + secondMax);
-      System.out.println("edge: " + thirdMaxEdge + ", eccentricity: " + thirdMax);
-      System.out.println("edge: " + fourthMaxEdge + ", eccentricity: " + fourthMax);
-      System.out.println("edge: " + fifthMaxEdge + ", eccentricity: " + fifthMax);
-
       writer.close();
+
+      ValueComparator bvc = new ValueComparator(edgeEccentricity);
+      TreeMap<Edge, Double> sorted_map = new TreeMap<Edge, Double>(bvc);
+      sorted_map.putAll(edgeEccentricity);
+      PrintWriter writer1 = new PrintWriter("edge-eccentricities.txt", "UTF-8");
+      writer1.println("results: " + sorted_map);
+      writer1.close();
+
     } catch (IOException e) {
       // do something
     }
   }
 
+}
+class ValueComparator implements Comparator<Edge> {
+  Map<Edge, Double> base;
+
+  public ValueComparator(Map<Edge, Double> base) {
+    this.base = base;
+  }
+
+  // Note: this comparator imposes orderings that are inconsistent with
+  // equals.
+  public int compare(Edge u, Edge v) {
+    if (base.get(u) >= base.get(v)) {
+      return -1;
+    } else {
+      return 1;
+    } // returning 0 would merge keys
+  }
 }
