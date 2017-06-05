@@ -10,7 +10,7 @@ import java.util.*;
 /**
  * Created by guillaumelachaud on 5/24/17.
  */
-public class MetroNode {
+public class Station {
 
   Integer id;
 
@@ -22,7 +22,7 @@ public class MetroNode {
 
   Double lng;
 
-  public MetroNode(Integer id, String nodeName, List metros, Double lat, Double lng) {
+  public Station(Integer id, String nodeName, List metros, Double lat, Double lng) {
     this.id = id;
     this.nodeName = nodeName;
     this.metros = metros;

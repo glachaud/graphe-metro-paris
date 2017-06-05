@@ -5,16 +5,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.*;
 
 /**
  * Created by guillaumelachaud on 5/24/17.
  */
 public class Metro {
-  GraphList<MetroNode> G;
+  GraphList<Station> metroGraph;
 
-  public Metro(String fileName) {
-    G = new GraphList();
+  public Metro(String fileName, Boolean isWeighted) {
+    metroGraph = new GraphList();
     try {
 
       ObjectMapper mapper = new ObjectMapper();
@@ -26,7 +27,7 @@ public class Metro {
               });
 
       createNodes(map);
-      createEdges(map);
+      createEdges(map, isWeighted);
 
     } catch (
             JsonGenerationException e)
@@ -49,8 +50,8 @@ public class Metro {
   }
 
   private void createNodes(Map<String, Object> map) {
-    MetroNode metroNode;
-    Node<MetroNode> node;
+    Station metroNode;
+    Node<Station> node;
 
     LinkedHashMap linkedHashMap = (LinkedHashMap) map.get("stations");
 //    System.out.println(linkedHashMap);
@@ -66,14 +67,14 @@ public class Metro {
         Double lng = Double.parseDouble(linkedHashMap1.get("lng").toString());
         Boolean isHub = Boolean.parseBoolean(linkedHashMap1.get("isHub").toString());
         String nom = linkedHashMap1.get("nom").toString();
-        metroNode = new MetroNode(id, nom, metros, lat, lng);
+        metroNode = new Station(id, nom, metros, lat, lng);
         node = new Node(metroNode);
-        G.addNode(node);
+        metroGraph.addNode(node);
       }
     }
   }
 
-  private void createEdges(Map<String, Object> map) {
+  private void createEdges(Map<String, Object> map, Boolean isWeighted) {
     ArrayList arrayList = (ArrayList) map.get("routes");
     Iterator<LinkedHashMap> route = arrayList.iterator();
     while (route.hasNext()) {
@@ -83,13 +84,16 @@ public class Metro {
         ArrayList arrets = (ArrayList) linkedHashMap.get("arrets");
         Iterator iterator = arrets.iterator();
         if (iterator.hasNext()) {
-          Node<MetroNode> tail = getNode(Integer.parseInt(iterator.next().toString()));
+          Node<Station> tail = getNode(Integer.parseInt(iterator.next().toString()));
           while (iterator.hasNext()) {
             Integer arret = Integer.parseInt(iterator.next().toString());
-            Node<MetroNode> head = getNode(arret);
-            Edge<MetroNode> edge = new Edge(ligne, tail, head);
-            G.addWeightedEdge(tail, head, getDistance(tail, head));
-//            G.addWeightedEdge(tail, head, 1d);
+            Node<Station> head = getNode(arret);
+            Edge<Station> edge = new Edge(ligne, tail, head);
+            if (isWeighted) {
+              metroGraph.addWeightedEdge(tail, head, getDistance(tail, head));
+            } else {
+              metroGraph.addWeightedEdge(tail, head, 1d);
+            }
             tail = head;
           }
         }
@@ -98,9 +102,9 @@ public class Metro {
   }
 
 
-  public Node<MetroNode> getNode(Integer id) {
-    Iterator<Node<MetroNode>> iterator = G.getAdjList().iterator();
-    Node<MetroNode> node;
+  public Node<Station> getNode(Integer id) {
+    Iterator<Node<Station>> iterator = metroGraph.getAdjList().iterator();
+    Node<Station> node;
     while (iterator.hasNext()) {
       node = iterator.next();
       if (node.getNode().getId().equals(id)) {
@@ -110,9 +114,9 @@ public class Metro {
     return null;
   }
 
-  public Node<MetroNode> getNode(String name) {
-    Iterator<Node<MetroNode>> iterator = G.getAdjList().iterator();
-    Node<MetroNode> node;
+  public Node<Station> getNode(String name) {
+    Iterator<Node<Station>> iterator = metroGraph.getAdjList().iterator();
+    Node<Station> node;
     while (iterator.hasNext()) {
       node = iterator.next();
       if (node.getNode().getNodeName().equals(name)) {
@@ -122,32 +126,32 @@ public class Metro {
     return null;
   }
 
-  public static Double getDistance(Node<MetroNode> tail, Node<MetroNode> head) {
+  public static Double getDistance(Node<Station> tail, Node<Station> head) {
     Double deglen = 110.25;
     Double x = head.getNode().getLat() - tail.getNode().getLat();
-    Double y = (head.getNode().getLng() - tail.getNode().getLng())*Math.cos(Math.toRadians(tail.getNode().getLat()));
+    Double y = (head.getNode().getLng() - tail.getNode().getLng()) * Math.cos(Math.toRadians(tail.getNode().getLat()));
     return deglen * Math.sqrt(x * x + y * y);
   }
 
-  public GraphList<MetroNode> getG() {
-    return G;
+  public GraphList<Station> getMetroGraph() {
+    return metroGraph;
   }
 
-  public void setG(GraphList<MetroNode> g) {
-    G = g;
+  public void setMetroGraph(GraphList<Station> metroGraph) {
+    this.metroGraph = metroGraph;
   }
 
-  public Stack<Node<MetroNode>> getLongestShortestPath() {
+  public Stack<Node<Station>> getLongestShortestPath() {
 
     Double distance = 0d;
-    Stack<Node<MetroNode>> edgeTo = new Stack();
+    Stack<Node<Station>> edgeTo = new Stack();
 
-    ArrayList<Node<MetroNode>> arrayList = G.getAdjList();
-    Iterator<Node<MetroNode>> iterator = arrayList.iterator();
-    HashMap<Node<MetroNode>, DijkstraSP> nodeDijkstraSPHashMap = new HashMap<>();
+    ArrayList<Node<Station>> arrayList = metroGraph.getAdjList();
+    Iterator<Node<Station>> iterator = arrayList.iterator();
+    HashMap<Node<Station>, DijkstraSP> nodeDijkstraSPHashMap = new HashMap<>();
     while (iterator.hasNext()) {
-      Node<MetroNode> nodeNode = iterator.next();
-      nodeDijkstraSPHashMap.put(nodeNode, new DijkstraSP(G, nodeNode));
+      Node<Station> nodeNode = iterator.next();
+      nodeDijkstraSPHashMap.put(nodeNode, new DijkstraSP(metroGraph, nodeNode));
     }
 
     Iterator<DijkstraSP> dijkstraSPIterator = nodeDijkstraSPHashMap.values().iterator();
@@ -155,9 +159,9 @@ public class Metro {
       DijkstraSP dijkstraSP = dijkstraSPIterator.next();
       Iterator<Node> keyIterator = dijkstraSP.getDistTo().keySet().iterator();
       while (keyIterator.hasNext()) {
-        Node<MetroNode> node = keyIterator.next();
+        Node<Station> node = keyIterator.next();
         Double dijsktraDistance = dijkstraSP.distTo(node);
-        if(dijsktraDistance > distance) {
+        if (dijsktraDistance > distance) {
           distance = dijsktraDistance;
           edgeTo = dijkstraSP.shortestPathTo(node);
         }
@@ -168,15 +172,15 @@ public class Metro {
     return edgeTo;
   }
 
-  /*public Map<Edge<MetroNode>, Double> getEdgesEccentricity() {
-    Map<Edge<MetroNode>, Double> edgeDoubleMap = new HashMap<Edge<MetroNode>, Double>();
+  /*public Map<Edge<Station>, Double> getEdgesEccentricity() {
+    Map<Edge<Station>, Double> edgeDoubleMap = new HashMap<Edge<Station>, Double>();
 
-    ArrayList<Node<MetroNode>> arrayList = G.getAdjList();
-    Iterator<Node<MetroNode>> iterator = arrayList.iterator();
-    HashMap<Node<MetroNode>, DijkstraSP> nodeDijkstraSPHashMap = new HashMap<>();
+    ArrayList<Node<Station>> arrayList = metroGraph.getAdjList();
+    Iterator<Node<Station>> iterator = arrayList.iterator();
+    HashMap<Node<Station>, DijkstraSP> nodeDijkstraSPHashMap = new HashMap<>();
     while (iterator.hasNext()) {
-      Node<MetroNode> nodeNode = iterator.next();
-      nodeDijkstraSPHashMap.put(nodeNode, new DijkstraSP(G, nodeNode));
+      Node<Station> nodeNode = iterator.next();
+      nodeDijkstraSPHashMap.put(nodeNode, new DijkstraSP(metroGraph, nodeNode));
     }
 
     Iterator<DijkstraSP> dijkstraSPIterator = nodeDijkstraSPHashMap.values().iterator();
@@ -197,39 +201,39 @@ public class Metro {
   }*/
 
   public static void main(String[] args) {
-    Metro metro = new Metro("src/reseau.json");
-    GraphList<MetroNode> G = metro.getG();
-//    Iterator<Node<MetroNode>> iterator = G.getAdjList().iterator();
+    Metro metro = new Metro("src/reseau.json", false);
+    GraphList<Station> graph = metro.getMetroGraph();
+//    Iterator<Node<Station>> iterator = metroGraph.getAdjList().iterator();
 //    while (iterator.hasNext()) {
-//      Node<MetroNode> nodeNode = iterator.next();
-//      MetroNode metroNode = nodeNode.getNode();
+//      Node<Station> nodeNode = iterator.next();
+//      Station metroNode = nodeNode.getNode();
 //      System.out.println(metroNode.getId() + ": " + nodeNode.getNodeName());
 //    }
-    DijkstraSP dijkstraSP = new DijkstraSP(G, metro.getNode("Mairie d'Issy"));
+    DijkstraSP dijkstraSP = new DijkstraSP(graph, metro.getNode("Mairie d'Issy"));
 
-//    Stack<Node<MetroNode>> nodeStack = dijkstraSP.shortestPathTo(metro.getNode("Bercy"));
+//    Stack<Node<Station>> nodeStack = dijkstraSP.shortestPathTo(metro.getNode("Bercy"));
 //    while (!nodeStack.isEmpty()) {
 //      System.out.println(nodeStack.pop().getNodeName());
 //    }
 //    System.out.println(dijkstraSP.distTo(metro.getNode("Bercy")));
 
-    ArrayList<Node<MetroNode>> arrayList = metro.getG().getAdjList();
-    Iterator<Node<MetroNode>> iterator = arrayList.iterator();
-    HashMap<Node<MetroNode>, DijkstraSP> nodeDijkstraSPHashMap = new HashMap<>();
+    ArrayList<Node<Station>> arrayList = metro.getMetroGraph().getAdjList();
+    Iterator<Node<Station>> iterator = arrayList.iterator();
+    HashMap<Node<Station>, DijkstraSP> nodeDijkstraSPHashMap = new HashMap<>();
     while (iterator.hasNext()) {
-      Node<MetroNode> nodeNode = iterator.next();
-      nodeDijkstraSPHashMap.put(nodeNode, new DijkstraSP(G, nodeNode));
+      Node<Station> nodeNode = iterator.next();
+      nodeDijkstraSPHashMap.put(nodeNode, new DijkstraSP(graph, nodeNode));
     }
 
 //    DijkstraSP dijkstraSP1 = nodeDijkstraSPHashMap.get(metro.getNode("Bercy"));
-//    Stack<Node<MetroNode>> nodeStack1 = dijkstraSP1.shortestPathTo(metro.getNode("Marcel Sembat"));
+//    Stack<Node<Station>> nodeStack1 = dijkstraSP1.shortestPathTo(metro.getNode("Marcel Sembat"));
 //    while (!nodeStack1.isEmpty()) {
 //      System.out.println(nodeStack1.pop().getNodeName());
 //    }
 //    System.out.println(dijkstraSP1.distTo(metro.getNode("Marcel Sembat")));
 
 
-//    Stack<Node<MetroNode>> nodeStack2 = metro.getLongestShortestPath();
+//    Stack<Node<Station>> nodeStack2 = metro.getLongestShortestPath();
 //    while (!nodeStack2.isEmpty()) {
 //      System.out.println(nodeStack2.pop().getNodeName());
 //    }
@@ -237,17 +241,123 @@ public class Metro {
 
     System.out.println("--------------");
     DijkstraSP dijkstraSP1 = nodeDijkstraSPHashMap.get(metro.getNode("Porte d'Auteuil"));
-    Stack<Node<MetroNode>> nodeStack1 = dijkstraSP1.shortestPathTo(metro.getNode("Pointe du Lac"));
+    Stack<Node<Station>> nodeStack1 = dijkstraSP1.shortestPathTo(metro.getNode("Pointe du Lac"));
     Double distance = 0d;
 
 
-    Stack<Node<MetroNode>> nodeStack2 = metro.getLongestShortestPath();
+    Stack<Node<Station>> nodeStack2 = metro.getLongestShortestPath();
     while (!nodeStack2.isEmpty()) {
       distance += 1;
-      Node<MetroNode> node = nodeStack2.pop();
+      Node<Station> node = nodeStack2.pop();
       System.out.println(node.getNodeName());
     }
 
+
+
+    Map<Edge, Double> edgeEccentricity = new HashMap<>();
+
+
+    Iterator<Node<Station>> nodeIterator1 = graph.getAdjList().iterator();
+    Map<Node, BreadthFirstPaths> breadthFirstPaths = new HashMap<>();
+    while (nodeIterator1.hasNext()) {
+      Node node = nodeIterator1.next();
+      breadthFirstPaths.put(node, new BreadthFirstPaths(graph, node));
+    }
+    Set<Node> nodeSet1 = breadthFirstPaths.keySet();
+    Iterator<Node> nodeIterator2 = nodeSet1.iterator();
+    try{
+      Double max = 0d;
+      Double secondMax = 0d;
+      Double thirdMax = 0d;
+      Double fourthMax = 0d;
+      Double fifthMax = 0d;
+      Edge maxEdge = new Edge(metro.getNode("Saint-Lazare"), metro.getNode("Liberté"));
+      Edge secondMaxEdge = new Edge(metro.getNode("Saint-Lazare"), metro.getNode("Liberté"));
+      Edge thirdMaxEdge = new Edge(metro.getNode("Saint-Lazare"), metro.getNode("Liberté"));
+      Edge fourthMaxEdge = new Edge(metro.getNode("Saint-Lazare"), metro.getNode("Liberté"));
+      Edge fifthMaxEdge = new Edge(metro.getNode("Saint-Lazare"), metro.getNode("Liberté"));
+      PrintWriter writer = new PrintWriter("console-output.txt", "UTF-8");
+      while (nodeIterator2.hasNext()) {
+        Node node = nodeIterator2.next();
+        BreadthFirstPaths breadthFirstPaths1 = breadthFirstPaths.get(node);
+        Map<Edge, Double> edgeEccentricities = breadthFirstPaths1.getEdgeEccentricity();
+        Set<Edge> edges = edgeEccentricities.keySet();
+        Iterator<Edge> edgeIterator = edges.iterator();
+        while (edgeIterator.hasNext()) {
+          Edge edge = edgeIterator.next();
+          if(edgeEccentricity.containsKey(edge)) {
+            edgeEccentricity.put(edge, edgeEccentricity.get(edge) + edgeEccentricities.get(edge));
+          } else {
+            edgeEccentricity.put(edge, edgeEccentricities.get(edge));
+          }
+        }
+      }
+      Set<Edge> edges1 = edgeEccentricity.keySet();
+      Iterator<Edge> edgeIterator1 = edges1.iterator();
+
+      while (edgeIterator1.hasNext()) {
+        Edge edge = edgeIterator1.next();
+        writer.println("edge: " + edge + ", eccentricity: " + edgeEccentricity.get(edge));
+        if(edgeEccentricity.get(edge) > max) {
+          max = edgeEccentricity.get(edge);
+          maxEdge = edge;
+        }
+      }
+      edges1 = edgeEccentricity.keySet();
+      edgeIterator1 = edges1.iterator();
+
+      while (edgeIterator1.hasNext()) {
+        Edge edge = edgeIterator1.next();
+        if(edgeEccentricity.get(edge) > secondMax && edgeEccentricity.get(edge) < max) {
+          secondMax = edgeEccentricity.get(edge);
+          secondMaxEdge = edge;
+        }
+      }
+
+      edges1 = edgeEccentricity.keySet();
+      edgeIterator1 = edges1.iterator();
+
+      while (edgeIterator1.hasNext()) {
+        Edge edge = edgeIterator1.next();
+        if(edgeEccentricity.get(edge) > thirdMax && edgeEccentricity.get(edge) < secondMax) {
+          thirdMax = edgeEccentricity.get(edge);
+          thirdMaxEdge = edge;
+        }
+      }
+
+      edges1 = edgeEccentricity.keySet();
+      edgeIterator1 = edges1.iterator();
+
+      while (edgeIterator1.hasNext()) {
+        Edge edge = edgeIterator1.next();
+        if(edgeEccentricity.get(edge) > fourthMax && edgeEccentricity.get(edge) < thirdMax) {
+          fourthMax = edgeEccentricity.get(edge);
+          fourthMaxEdge = edge;
+        }
+      }
+
+      edges1 = edgeEccentricity.keySet();
+      edgeIterator1 = edges1.iterator();
+
+      while (edgeIterator1.hasNext()) {
+        Edge edge = edgeIterator1.next();
+        if(edgeEccentricity.get(edge) > fifthMax && edgeEccentricity.get(edge) < fourthMax) {
+          fifthMax = edgeEccentricity.get(edge);
+          fifthMaxEdge = edge;
+        }
+      }
+
+
+      System.out.println("edge: " + maxEdge + ", eccentricity: " + max);
+      System.out.println("edge: " + secondMaxEdge + ", eccentricity: " + secondMax);
+      System.out.println("edge: " + thirdMaxEdge + ", eccentricity: " + thirdMax);
+      System.out.println("edge: " + fourthMaxEdge + ", eccentricity: " + fourthMax);
+      System.out.println("edge: " + fifthMaxEdge + ", eccentricity: " + fifthMax);
+
+      writer.close();
+    } catch (IOException e) {
+      // do something
+    }
   }
 
 }

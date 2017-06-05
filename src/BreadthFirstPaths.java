@@ -1,3 +1,5 @@
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.*;
 
 /**
@@ -50,8 +52,16 @@ public class BreadthFirstPaths<T> {
         while(edgeIterator.hasNext()) {
           Edge<T> edge = edgeIterator.next();
           Node<T> node = edge.getHead();
+          Edge<T> reversedEdge = edge;
+          Iterator<Edge<T>> edgeIterator1 = node.getNeighbors().iterator();
+          while(edgeIterator1.hasNext()) {
+            reversedEdge = edgeIterator1.next();
+            if(reversedEdge.getTail() == edge.getHead() && reversedEdge.getHead() == edge.getTail()){
+              break;
+            }
+          }
           if(distTo.containsKey(node) && distTo.get(node) < distTo.get(nodeIteration)) {
-            lastNode.put(node, edge);
+            lastNode.put(node, reversedEdge);
           }
 
         }
@@ -161,6 +171,8 @@ public class BreadthFirstPaths<T> {
     /*while (!nodeStack.isEmpty()) {
       System.out.println(nodeStack.pop().getNodeName());
     }*/
+
+    Map<Edge, Double> edgeEccentricity = new HashMap<>();
     Iterator<Node> nodeIterator1 = graph.getAdjList().iterator();
     Map<Node, BreadthFirstPaths> breadthFirstPaths = new HashMap<>();
     while (nodeIterator1.hasNext()) {
@@ -171,15 +183,26 @@ public class BreadthFirstPaths<T> {
     Iterator<Node> nodeIterator2 = nodeSet1.iterator();
     while (nodeIterator2.hasNext()) {
       Node node = nodeIterator2.next();
-      System.out.println(node.getNodeName());
+//      System.out.println(node.getNodeName());
       BreadthFirstPaths breadthFirstPaths1 = breadthFirstPaths.get(node);
       Map<Edge, Double> edgeEccentricities = breadthFirstPaths1.getEdgeEccentricity();
       Set<Edge> edges = edgeEccentricities.keySet();
       Iterator<Edge> edgeIterator = edges.iterator();
       while (edgeIterator.hasNext()) {
         Edge edge = edgeIterator.next();
-        System.out.println("edge: " + edge + ", eccentricity: " + edgeEccentricities.get(edge));
+        if(edgeEccentricity.containsKey(edge)) {
+          edgeEccentricity.put(edge, edgeEccentricity.get(edge) + edgeEccentricities.get(edge));
+        } else {
+          edgeEccentricity.put(edge, edgeEccentricities.get(edge));
+        }
+//        System.out.println("edge: " + edge + ", eccentricity: " + edgeEccentricities.get(edge));
       }
+    }
+    Set<Edge> edges = edgeEccentricity.keySet();
+    Iterator<Edge> edgeIterator = edges.iterator();
+    while (edgeIterator.hasNext()) {
+      Edge edge = edgeIterator.next();
+      System.out.println("edge: " + edge + ", eccentricity: " + edgeEccentricity.get(edge));
     }
   }
 }
