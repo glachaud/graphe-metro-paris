@@ -1,0 +1,704 @@
+Tail: Gare de Lyon - Head: Châtelet - Weight: 1.0: 10168.0
+Tail: Châtelet - Head: Gare de Lyon - Weight: 1.0: 10008.0
+Tail: Pyramides - Head: Madeleine - Weight: 1.0: 9203.0
+Tail: Châtelet - Head: Pyramides - Weight: 1.0: 9173.0
+Tail: Madeleine - Head: Pyramides - Weight: 1.0: 9080.0
+Tail: Pyramides - Head: Châtelet - Weight: 1.0: 9050.0
+Tail: Concorde - Head: Madeleine - Weight: 1.0: 8549.0
+Tail: Madeleine - Head: Concorde - Weight: 1.0: 8530.0
+Tail: Reuilly-Diderot - Head: Gare de Lyon - Weight: 1.0: 8000.0
+Tail: Gare de Lyon - Head: Reuilly-Diderot - Weight: 1.0: 6809.0
+Tail: Concorde - Head: Invalides - Weight: 1.0: 5246.0
+Tail: Gare de Lyon - Head: Bercy - Weight: 1.0: 4973.0
+Tail: Invalides - Head: Concorde - Weight: 1.0: 4956.0
+Tail: Nation - Head: Reuilly-Diderot - Weight: 1.0: 4922.0
+Tail: Reuilly-Diderot - Head: Nation - Weight: 1.0: 4757.0
+Tail: Invalides - Head: La Tour-Maubourg - Weight: 1.0: 4655.0
+Tail: Madeleine - Head: Saint-Lazare - Weight: 1.0: 4581.0
+Tail: Saint-Lazare - Head: Madeleine - Weight: 1.0: 4522.0
+Tail: La Tour-Maubourg - Head: Invalides - Weight: 1.0: 4432.0
+Tail: La Tour-Maubourg - Head: Ecole Militaire - Weight: 1.0: 4428.0
+Tail: La Fourche - Head: Place de Clichy - Weight: 1.0: 4320.0
+Tail: Place de Clichy - Head: La Fourche - Weight: 1.0: 4320.0
+Tail: Ecole Militaire - Head: La Motte-Picquet-Grenelle - Weight: 1.0: 4303.0
+Tail: Madeleine - Head: Opéra - Weight: 1.0: 4284.0
+Tail: Montparnasse-Bienvenue - Head: Duroc - Weight: 1.0: 4214.0
+Tail: Ecole Militaire - Head: La Tour-Maubourg - Weight: 1.0: 4205.0
+Tail: Opéra - Head: Madeleine - Weight: 1.0: 4201.0
+Tail: Duroc - Head: Montparnasse-Bienvenue - Weight: 1.0: 4190.0
+Tail: La Motte-Picquet-Grenelle - Head: Ecole Militaire - Weight: 1.0: 4080.0
+Tail: Bercy - Head: Gare de Lyon - Weight: 1.0: 3903.0
+Tail: La Motte-Picquet-Grenelle - Head: Avenue Emile-Zola - Weight: 1.0: 3795.0
+Tail: Franklin-Roosevelt - Head: Champs-Elysées-Clémenceau - Weight: 1.0: 3764.0
+Tail: Liège - Head: Saint-Lazare - Weight: 1.0: 3630.0
+Tail: Invalides - Head: Varenne - Weight: 1.0: 3604.0
+Tail: Varenne - Head: Invalides - Weight: 1.0: 3582.0
+Tail: Saint-Lazare - Head: Liège - Weight: 1.0: 3574.0
+Tail: Châtelet - Head: Cité - Weight: 1.0: 3569.0
+Tail: Gare du Nord - Head: Gare de l'Est (Verdun) - Weight: 1.0: 3532.0
+Tail: Avenue Emile-Zola - Head: Charles Michels - Weight: 1.0: 3528.0
+Tail: Gare de l'Est (Verdun) - Head: Gare du Nord - Weight: 1.0: 3526.0
+Tail: Champs-Elysées-Clémenceau - Head: Franklin-Roosevelt - Weight: 1.0: 3504.0
+Tail: Cité - Head: Châtelet - Weight: 1.0: 3504.0
+Tail: Saint-Lazare - Head: Miromesnil - Weight: 1.0: 3493.0
+Tail: Michel Bizot - Head: Daumesnil (Félix Eboué) - Weight: 1.0: 3492.0
+Tail: Daumesnil (Félix Eboué) - Head: Michel Bizot - Weight: 1.0: 3492.0
+Tail: Place de Clichy - Head: Liège - Weight: 1.0: 3490.0
+Tail: Avenue Emile-Zola - Head: La Motte-Picquet-Grenelle - Weight: 1.0: 3466.0
+Tail: Miromesnil - Head: Saint-Lazare - Weight: 1.0: 3455.0
+Tail: Liège - Head: Place de Clichy - Weight: 1.0: 3434.0
+Tail: Varenne - Head: Saint-Francois-Xavier - Weight: 1.0: 3423.0
+Tail: Cité - Head: Saint-Michel - Weight: 1.0: 3402.0
+Tail: Saint-Francois-Xavier - Head: Varenne - Weight: 1.0: 3401.0
+Tail: Saint-Michel - Head: Cité - Weight: 1.0: 3337.0
+Tail: Saint-Francois-Xavier - Head: Duroc - Weight: 1.0: 3306.0
+Tail: Duroc - Head: Saint-Francois-Xavier - Weight: 1.0: 3284.0
+Tail: Champs-Elysées-Clémenceau - Head: Concorde - Weight: 1.0: 3268.0
+Tail: Charles Michels - Head: Javel-André-Citroen - Weight: 1.0: 3261.0
+Tail: Saint-Michel - Head: Odéon - Weight: 1.0: 3260.0
+Tail: Porte Dorée - Head: Michel Bizot - Weight: 1.0: 3212.0
+Tail: Place d'Italie - Head: Tolbiac - Weight: 1.0: 3212.0
+Tail: Tolbiac - Head: Place d'Italie - Weight: 1.0: 3212.0
+Tail: Michel Bizot - Head: Porte Dorée - Weight: 1.0: 3212.0
+Tail: Charles Michels - Head: Avenue Emile-Zola - Weight: 1.0: 3199.0
+Tail: Odéon - Head: Saint-Michel - Weight: 1.0: 3195.0
+Tail: Bercy - Head: Quai de la Gare - Weight: 1.0: 3138.0
+Tail: Invalides - Head: Champs-Elysées-Clémenceau - Weight: 1.0: 3110.0
+Tail: Quai de la Gare - Head: Bercy - Weight: 1.0: 3095.0
+Tail: Javel-André-Citroen - Head: Eglise d'Auteuil - Weight: 1.0: 3086.0
+Tail: Eglise d'Auteuil - Head: Michel-Ange-Auteuil - Weight: 1.0: 3086.0
+Tail: Champs-Elysées-Clémenceau - Head: Invalides - Weight: 1.0: 3065.0
+Tail: Concorde - Head: Champs-Elysées-Clémenceau - Weight: 1.0: 2975.0
+Tail: Chemin Vert - Head: Bastille - Weight: 1.0: 2956.0
+Tail: Javel-André-Citroen - Head: Charles Michels - Weight: 1.0: 2932.0
+Tail: Porte Dorée - Head: Porte de Charenton - Weight: 1.0: 2930.0
+Tail: Porte de Charenton - Head: Porte Dorée - Weight: 1.0: 2930.0
+Tail: Tolbiac - Head: Maison Blanche - Weight: 1.0: 2930.0
+Tail: Maison Blanche - Head: Tolbiac - Weight: 1.0: 2930.0
+Tail: Quai de la Gare - Head: Chevaleret - Weight: 1.0: 2929.0
+Tail: Avron - Head: Nation - Weight: 1.0: 2918.0
+Tail: Montgallet - Head: Reuilly-Diderot - Weight: 1.0: 2914.0
+Tail: Chevaleret - Head: Quai de la Gare - Weight: 1.0: 2886.0
+Tail: Bastille - Head: Chemin Vert - Weight: 1.0: 2855.0
+Tail: République - Head: Goncourt (Hôpital Saint-Louis) - Weight: 1.0: 2847.0
+Tail: Nation - Head: Avron - Weight: 1.0: 2828.0
+Tail: Saint-Sébastien-Froissart - Head: Chemin Vert - Weight: 1.0: 2802.0
+Tail: Chardon-Lagache - Head: Mirabeau - Weight: 1.0: 2757.0
+Tail: Mirabeau - Head: Javel-André-Citroen - Weight: 1.0: 2757.0
+Tail: Michel-Ange-Molitor - Head: Chardon-Lagache - Weight: 1.0: 2757.0
+Tail: Alexandre-Dumas - Head: Avron - Weight: 1.0: 2749.0
+Tail: Chevaleret - Head: Nationale - Weight: 1.0: 2736.0
+Tail: Bastille - Head: Gare de Lyon - Weight: 1.0: 2705.0
+Tail: Daumesnil (Félix Eboué) - Head: Montgallet - Weight: 1.0: 2702.0
+Tail: Chemin Vert - Head: Saint-Sébastien-Froissart - Weight: 1.0: 2701.0
+Tail: Nationale - Head: Chevaleret - Weight: 1.0: 2693.0
+Tail: Filles du Calvaire - Head: Saint-Sébastien-Froissart - Weight: 1.0: 2671.0
+Tail: Gare de Lyon - Head: Bastille - Weight: 1.0: 2666.0
+Tail: Avron - Head: Alexandre-Dumas - Weight: 1.0: 2659.0
+Tail: Le Peletier - Head: Chaussée d'Antin (La Fayette) - Weight: 1.0: 2655.0
+Tail: Alma-Marceau - Head: Franklin-Roosevelt - Weight: 1.0: 2651.0
+Tail: Porte de Charenton - Head: Liberté - Weight: 1.0: 2646.0
+Tail: Liberté - Head: Porte de Charenton - Weight: 1.0: 2646.0
+Tail: Pigalle - Head: Anvers - Weight: 1.0: 2637.0
+Tail: Anvers - Head: Pigalle - Weight: 1.0: 2634.0
+Tail: Goncourt (Hôpital Saint-Louis) - Head: Belleville - Weight: 1.0: 2629.0
+Tail: République - Head: Filles du Calvaire - Weight: 1.0: 2622.0
+Tail: Nationale - Head: Place d'Italie - Weight: 1.0: 2603.0
+Tail: Chaussée d'Antin (La Fayette) - Head: Le Peletier - Weight: 1.0: 2602.0
+Tail: Philippe Auguste - Head: Alexandre-Dumas - Weight: 1.0: 2598.0
+Tail: Goncourt (Hôpital Saint-Louis) - Head: République - Weight: 1.0: 2588.0
+Tail: Saint-Sébastien-Froissart - Head: Filles du Calvaire - Weight: 1.0: 2570.0
+Tail: Michel-Ange-Auteuil - Head: Michel-Ange-Molitor - Weight: 1.0: 2568.0
+Tail: Place d'Italie - Head: Nationale - Weight: 1.0: 2560.0
+Tail: Anvers - Head: Barbès-Rochechouart - Weight: 1.0: 2536.0
+Tail: Barbès-Rochechouart - Head: Anvers - Weight: 1.0: 2533.0
+Tail: Jacques-Bonsergent - Head: République - Weight: 1.0: 2524.0
+Tail: Filles du Calvaire - Head: République - Weight: 1.0: 2521.0
+Tail: Gare de l'Est (Verdun) - Head: Jacques-Bonsergent - Weight: 1.0: 2510.0
+Tail: Champs-Elysées-Clémenceau - Head: Miromesnil - Weight: 1.0: 2510.0
+Tail: Alexandre-Dumas - Head: Philippe Auguste - Weight: 1.0: 2508.0
+Tail: Cadet - Head: Le Peletier - Weight: 1.0: 2505.0
+Tail: Miromesnil - Head: Champs-Elysées-Clémenceau - Weight: 1.0: 2498.0
+Tail: Père-Lachaise - Head: Philippe Auguste - Weight: 1.0: 2465.0
+Tail: Vavin - Head: Montparnasse-Bienvenue - Weight: 1.0: 2463.0
+Tail: Place de Clichy - Head: Blanche - Weight: 1.0: 2460.0
+Tail: Montparnasse-Bienvenue - Head: Vavin - Weight: 1.0: 2457.0
+Tail: Le Peletier - Head: Cadet - Weight: 1.0: 2452.0
+Tail: République - Head: Jacques-Bonsergent - Weight: 1.0: 2451.0
+Tail: Blanche - Head: Place de Clichy - Weight: 1.0: 2447.0
+Tail: Gare de l'Est (Verdun) - Head: Poissonnière - Weight: 1.0: 2443.0
+Tail: Jacques-Bonsergent - Head: Gare de l'Est (Verdun) - Weight: 1.0: 2437.0
+Tail: Iéna - Head: Alma-Marceau - Weight: 1.0: 2419.0
+Tail: George V - Head: Franklin-Roosevelt - Weight: 1.0: 2410.0
+Tail: Franklin-Roosevelt - Head: George V - Weight: 1.0: 2394.0
+Tail: Poissonnière - Head: Gare de l'Est (Verdun) - Weight: 1.0: 2390.0
+Tail: Bastille - Head: Quai de la Rapée - Weight: 1.0: 2388.0
+Tail: Poissonnière - Head: Cadet - Weight: 1.0: 2385.0
+Tail: Franklin-Roosevelt - Head: Alma-Marceau - Weight: 1.0: 2379.0
+Tail: Philippe Auguste - Head: Père-Lachaise - Weight: 1.0: 2375.0
+Tail: Belleville - Head: Goncourt (Hôpital Saint-Louis) - Weight: 1.0: 2370.0
+Tail: Quai de la Rapée - Head: Bastille - Weight: 1.0: 2363.0
+Tail: Guy-Môquet - Head: La Fourche - Weight: 1.0: 2360.0
+Tail: Liberté - Head: Charenton-Ecoles - Weight: 1.0: 2360.0
+Tail: La Fourche - Head: Guy-Môquet - Weight: 1.0: 2360.0
+Tail: Charenton-Ecoles - Head: Liberté - Weight: 1.0: 2360.0
+Tail: Cadet - Head: Poissonnière - Weight: 1.0: 2332.0
+Tail: Place d'Italie - Head: Corvisart - Weight: 1.0: 2324.0
+Tail: Corvisart - Head: Place d'Italie - Weight: 1.0: 2318.0
+Tail: Blanche - Head: Pigalle - Weight: 1.0: 2316.0
+Tail: Belleville - Head: Colonel Fabien - Weight: 1.0: 2312.0
+Tail: Odéon - Head: Saint-Germain des Prés - Weight: 1.0: 2304.0
+Tail: Pigalle - Head: Blanche - Weight: 1.0: 2303.0
+Tail: Saint-Germain des Prés - Head: Odéon - Weight: 1.0: 2287.0
+Tail: Raspail - Head: Vavin - Weight: 1.0: 2263.0
+Tail: Vavin - Head: Raspail - Weight: 1.0: 2257.0
+Tail: Trinité-d'Estienne d'Orves - Head: Saint-Lazare - Weight: 1.0: 2227.0
+Tail: Trocadéro - Head: Iéna - Weight: 1.0: 2222.0
+Tail: Saint-Lazare - Head: Trinité-d'Estienne d'Orves - Weight: 1.0: 2221.0
+Tail: Quai de la Rapée - Head: Gare d'Austerlitz - Weight: 1.0: 2216.0
+Tail: Rue de la Pompe (Av. Georges Mandel) - Head: Trocadéro - Weight: 1.0: 2198.0
+Tail: Colonel Fabien - Head: Jaurès - Weight: 1.0: 2196.0
+Tail: Denfert-Rochereau - Head: Raspail - Weight: 1.0: 2194.0
+Tail: Gare d'Austerlitz - Head: Quai de la Rapée - Weight: 1.0: 2191.0
+Tail: Raspail - Head: Denfert-Rochereau - Weight: 1.0: 2188.0
+Tail: Corvisart - Head: Glacière - Weight: 1.0: 2174.0
+Tail: Glacière - Head: Corvisart - Weight: 1.0: 2168.0
+Tail: Saint-Lazare - Head: Europe - Weight: 1.0: 2159.0
+Tail: Charles de Gaulle-Étoile - Head: George V - Weight: 1.0: 2154.0
+Tail: Alma-Marceau - Head: Iéna - Weight: 1.0: 2147.0
+Tail: Saint-Germain des Prés - Head: Saint-Sulpice - Weight: 1.0: 2142.0
+Tail: George V - Head: Charles de Gaulle-Étoile - Weight: 1.0: 2138.0
+Tail: Chaussée d'Antin (La Fayette) - Head: Opéra - Weight: 1.0: 2133.0
+Tail: Saint-Sulpice - Head: Saint-Germain des Prés - Weight: 1.0: 2125.0
+Tail: Ecole Vétérinaire de Maisons-Alfort - Head: Charenton-Ecoles - Weight: 1.0: 2072.0
+Tail: Montparnasse-Bienvenue - Head: Gaité - Weight: 1.0: 2072.0
+Tail: Charenton-Ecoles - Head: Ecole Vétérinaire de Maisons-Alfort - Weight: 1.0: 2072.0
+Tail: Riquet - Head: Stalingrad - Weight: 1.0: 2072.0
+Tail: Jaurès - Head: Laumière - Weight: 1.0: 2072.0
+Tail: Laumière - Head: Jaurès - Weight: 1.0: 2072.0
+Tail: Gaité - Head: Montparnasse-Bienvenue - Weight: 1.0: 2072.0
+Tail: Villiers - Head: Malesherbes - Weight: 1.0: 2072.0
+Tail: Guy-Môquet - Head: Porte de Saint-Ouen - Weight: 1.0: 2072.0
+Tail: Porte de Saint-Ouen - Head: Guy-Môquet - Weight: 1.0: 2072.0
+Tail: Malesherbes - Head: Villiers - Weight: 1.0: 2072.0
+Tail: Stalingrad - Head: Riquet - Weight: 1.0: 2072.0
+Tail: Saint-Placide - Head: Montparnasse-Bienvenue - Weight: 1.0: 2068.0
+Tail: Glacière - Head: Saint-Jacques - Weight: 1.0: 2067.0
+Tail: Europe - Head: Saint-Lazare - Weight: 1.0: 2067.0
+Tail: Saint-Jacques - Head: Denfert-Rochereau - Weight: 1.0: 2064.0
+Tail: Saint-Jacques - Head: Glacière - Weight: 1.0: 2061.0
+Tail: Denfert-Rochereau - Head: Saint-Jacques - Weight: 1.0: 2058.0
+Tail: Montparnasse-Bienvenue - Head: Saint-Placide - Weight: 1.0: 2051.0
+Tail: Saint-Sulpice - Head: Saint-Placide - Weight: 1.0: 2046.0
+Tail: Gambetta - Head: Père-Lachaise - Weight: 1.0: 2038.0
+Tail: Notre-Dame de Lorette - Head: Trinité-d'Estienne d'Orves - Weight: 1.0: 2033.0
+Tail: Saint-Placide - Head: Saint-Sulpice - Weight: 1.0: 2029.0
+Tail: Trinité-d'Estienne d'Orves - Head: Notre-Dame de Lorette - Weight: 1.0: 2027.0
+Tail: Opéra - Head: Chaussée d'Antin (La Fayette) - Weight: 1.0: 2019.0
+Tail: Europe - Head: Villiers - Weight: 1.0: 2009.0
+Tail: Duroc - Head: Ségur - Weight: 1.0: 2003.0
+Tail: Barbès-Rochechouart - Head: La Chapelle - Weight: 1.0: 2002.0
+Tail: La Chapelle - Head: Barbès-Rochechouart - Weight: 1.0: 2002.0
+Tail: Bercy - Head: Dugommier - Weight: 1.0: 1977.0
+Tail: Richelieu-Drouot - Head: Grands Boulevards - Weight: 1.0: 1966.0
+Tail: Ségur - Head: Duroc - Weight: 1.0: 1960.0
+Tail: Iéna - Head: Trocadéro - Weight: 1.0: 1950.0
+Tail: La Muette - Head: Rue de la Pompe (Av. Georges Mandel) - Weight: 1.0: 1931.0
+Tail: Villiers - Head: Europe - Weight: 1.0: 1917.0
+Tail: Colonel Fabien - Head: Belleville - Weight: 1.0: 1912.0
+Tail: Pasteur - Head: Montparnasse-Bienvenue - Weight: 1.0: 1910.0
+Tail: Montparnasse-Bienvenue - Head: Pasteur - Weight: 1.0: 1909.0
+Tail: Saint-Georges - Head: Notre-Dame de Lorette - Weight: 1.0: 1903.0
+Tail: Notre-Dame de Lorette - Head: Saint-Georges - Weight: 1.0: 1897.0
+Tail: Barbès-Rochechouart - Head: Gare du Nord - Weight: 1.0: 1895.0
+Tail: Gare du Nord - Head: Barbès-Rochechouart - Weight: 1.0: 1888.0
+Tail: Reuilly-Diderot - Head: Montgallet - Weight: 1.0: 1884.0
+Tail: Trocadéro - Head: Rue de la Pompe (Av. Georges Mandel) - Weight: 1.0: 1869.0
+Tail: Bonne Nouvelle - Head: Strasbourg-Saint-Denis - Weight: 1.0: 1867.0
+Tail: Père-Lachaise - Head: Gambetta - Weight: 1.0: 1854.0
+Tail: Grands Boulevards - Head: Bonne Nouvelle - Weight: 1.0: 1843.0
+Tail: Pigalle - Head: Saint-Georges - Weight: 1.0: 1813.0
+Tail: La Chapelle - Head: Stalingrad - Weight: 1.0: 1812.0
+Tail: Stalingrad - Head: La Chapelle - Weight: 1.0: 1812.0
+Tail: Saint-Georges - Head: Pigalle - Weight: 1.0: 1807.0
+Tail: Jaurès - Head: Colonel Fabien - Weight: 1.0: 1796.0
+Tail: Strasbourg-Saint-Denis - Head: République - Weight: 1.0: 1793.0
+Tail: Buzenval - Head: Nation - Weight: 1.0: 1782.0
+Tail: Crimée - Head: Riquet - Weight: 1.0: 1782.0
+Tail: Riquet - Head: Crimée - Weight: 1.0: 1782.0
+Tail: Pasteur - Head: Volontaires - Weight: 1.0: 1782.0
+Tail: Pernéty - Head: Gaité - Weight: 1.0: 1782.0
+Tail: Laumière - Head: Ourcq - Weight: 1.0: 1782.0
+Tail: Charles de Gaulle-Étoile - Head: Argentine - Weight: 1.0: 1782.0
+Tail: Malesherbes - Head: Wagram - Weight: 1.0: 1782.0
+Tail: Gaité - Head: Pernéty - Weight: 1.0: 1782.0
+Tail: Argentine - Head: Charles de Gaulle-Étoile - Weight: 1.0: 1782.0
+Tail: Maisons-Alfort-Stade - Head: Ecole Vétérinaire de Maisons-Alfort - Weight: 1.0: 1782.0
+Tail: Brochant - Head: La Fourche - Weight: 1.0: 1782.0
+Tail: Ourcq - Head: Laumière - Weight: 1.0: 1782.0
+Tail: Wagram - Head: Malesherbes - Weight: 1.0: 1782.0
+Tail: Volontaires - Head: Pasteur - Weight: 1.0: 1782.0
+Tail: Ecole Vétérinaire de Maisons-Alfort - Head: Maisons-Alfort-Stade - Weight: 1.0: 1782.0
+Tail: La Fourche - Head: Brochant - Weight: 1.0: 1782.0
+Tail: Porte de Saint-Ouen - Head: Garibaldi - Weight: 1.0: 1782.0
+Tail: Garibaldi - Head: Porte de Saint-Ouen - Weight: 1.0: 1782.0
+Tail: Nation - Head: Buzenval - Weight: 1.0: 1782.0
+Tail: Ségur - Head: La Motte-Picquet-Grenelle - Weight: 1.0: 1775.0
+Tail: Opéra - Head: Richelieu-Drouot - Weight: 1.0: 1772.0
+Tail: Dugommier - Head: Daumesnil (Félix Eboué) - Weight: 1.0: 1769.0
+Tail: Saint-Marcel - Head: Gare d'Austerlitz - Weight: 1.0: 1766.0
+Tail: Grands Boulevards - Head: Richelieu-Drouot - Weight: 1.0: 1757.0
+Tail: La Motte-Picquet-Grenelle - Head: Ségur - Weight: 1.0: 1732.0
+Tail: Gare d'Austerlitz - Head: Saint-Marcel - Weight: 1.0: 1728.0
+Tail: Saint-Philippe du Roule - Head: Miromesnil - Weight: 1.0: 1683.0
+Tail: Jaurès - Head: Stalingrad - Weight: 1.0: 1675.0
+Tail: Stalingrad - Head: Jaurès - Weight: 1.0: 1673.0
+Tail: Montgallet - Head: Daumesnil (Félix Eboué) - Weight: 1.0: 1672.0
+Tail: Ranelagh - Head: La Muette - Weight: 1.0: 1664.0
+Tail: Strasbourg-Saint-Denis - Head: Bonne Nouvelle - Weight: 1.0: 1658.0
+Tail: Rome - Head: Place de Clichy - Weight: 1.0: 1656.0
+Tail: Miromesnil - Head: Saint-Philippe du Roule - Weight: 1.0: 1655.0
+Tail: Hôtel de Ville - Head: Châtelet - Weight: 1.0: 1653.0
+Tail: Bonne Nouvelle - Head: Grands Boulevards - Weight: 1.0: 1634.0
+Tail: Châtelet - Head: Hôtel de Ville - Weight: 1.0: 1612.0
+Tail: Rue de la Pompe (Av. Georges Mandel) - Head: La Muette - Weight: 1.0: 1602.0
+Tail: Château Landon - Head: Gare de l'Est (Verdun) - Weight: 1.0: 1595.0
+Tail: Place de Clichy - Head: Rome - Weight: 1.0: 1587.0
+Tail: Pyrenees - Head: Belleville - Weight: 1.0: 1570.0
+Tail: Richelieu-Drouot - Head: Opéra - Weight: 1.0: 1559.0
+Tail: Campo-Formio - Head: Saint-Marcel - Weight: 1.0: 1556.0
+Tail: Rambuteau - Head: Hôtel de Ville - Weight: 1.0: 1550.0
+Tail: Pigalle - Head: Abbesses - Weight: 1.0: 1536.0
+Tail: Gare de l'Est (Verdun) - Head: Château Landon - Weight: 1.0: 1534.0
+Tail: Abbesses - Head: Pigalle - Weight: 1.0: 1532.0
+Tail: Villiers - Head: Rome - Weight: 1.0: 1530.0
+Tail: Gare du Nord - Head: Stalingrad - Weight: 1.0: 1521.0
+Tail: Stalingrad - Head: Gare du Nord - Weight: 1.0: 1520.0
+Tail: Saint-Marcel - Head: Campo-Formio - Weight: 1.0: 1518.0
+Tail: Hôtel de Ville - Head: Rambuteau - Weight: 1.0: 1509.0
+Tail: Porte Maillot - Head: Argentine - Weight: 1.0: 1490.0
+Tail: Wagram - Head: Péreire - Weight: 1.0: 1490.0
+Tail: Commerce - Head: La Motte-Picquet-Grenelle - Weight: 1.0: 1490.0
+Tail: Porte de Pantin - Head: Ourcq - Weight: 1.0: 1490.0
+Tail: Argentine - Head: Porte Maillot - Weight: 1.0: 1490.0
+Tail: Porte d'Italie - Head: Maison Blanche - Weight: 1.0: 1490.0
+Tail: La Motte-Picquet-Grenelle - Head: Commerce - Weight: 1.0: 1490.0
+Tail: Maisons-Alfort-Les Juilliottes - Head: Maisons-Alfort-Stade - Weight: 1.0: 1490.0
+Tail: Maraichers - Head: Buzenval - Weight: 1.0: 1490.0
+Tail: Maisons-Alfort-Stade - Head: Maisons-Alfort-Les Juilliottes - Weight: 1.0: 1490.0
+Tail: Vaugirard (Adolphe Chérioux) - Head: Volontaires - Weight: 1.0: 1490.0
+Tail: Péreire - Head: Wagram - Weight: 1.0: 1490.0
+Tail: Franklin-Roosevelt - Head: Saint-Philippe du Roule - Weight: 1.0: 1490.0
+Tail: Pernéty - Head: Plaisance - Weight: 1.0: 1490.0
+Tail: Brochant - Head: Porte de Clichy - Weight: 1.0: 1490.0
+Tail: Ourcq - Head: Porte de Pantin - Weight: 1.0: 1490.0
+Tail: Porte de Clichy - Head: Brochant - Weight: 1.0: 1490.0
+Tail: Crimée - Head: Corentin-Cariou - Weight: 1.0: 1490.0
+Tail: Exelmans - Head: Michel-Ange-Molitor - Weight: 1.0: 1490.0
+Tail: Mairie de Saint-Ouen - Head: Garibaldi - Weight: 1.0: 1490.0
+Tail: Corentin-Cariou - Head: Crimée - Weight: 1.0: 1490.0
+Tail: Maison Blanche - Head: Porte d'Italie - Weight: 1.0: 1490.0
+Tail: Volontaires - Head: Vaugirard (Adolphe Chérioux) - Weight: 1.0: 1490.0
+Tail: Michel-Ange-Molitor - Head: Exelmans - Weight: 1.0: 1490.0
+Tail: Plaisance - Head: Pernéty - Weight: 1.0: 1490.0
+Tail: Buzenval - Head: Maraichers - Weight: 1.0: 1490.0
+Tail: Garibaldi - Head: Mairie de Saint-Ouen - Weight: 1.0: 1490.0
+Tail: Saint-Philippe du Roule - Head: Franklin-Roosevelt - Weight: 1.0: 1462.0
+Tail: Rome - Head: Villiers - Weight: 1.0: 1461.0
+Tail: Jasmin - Head: Ranelagh - Weight: 1.0: 1456.0
+Tail: Villiers - Head: Monceau - Weight: 1.0: 1447.0
+Tail: République - Head: Strasbourg-Saint-Denis - Weight: 1.0: 1447.0
+Tail: Place d'Italie - Head: Campo-Formio - Weight: 1.0: 1446.0
+Tail: Monceau - Head: Villiers - Weight: 1.0: 1424.0
+Tail: Arts-et-Métiers - Head: Rambuteau - Weight: 1.0: 1415.0
+Tail: Belleville - Head: Pyrenees - Weight: 1.0: 1414.0
+Tail: Campo-Formio - Head: Place d'Italie - Weight: 1.0: 1408.0
+Tail: Château Rouge - Head: Barbès-Rochechouart - Weight: 1.0: 1399.0
+Tail: Barbès-Rochechouart - Head: Château Rouge - Weight: 1.0: 1395.0
+Tail: Pont Marie (Cité des Arts) - Head: Châtelet - Weight: 1.0: 1384.0
+Tail: Rambuteau - Head: Arts-et-Métiers - Weight: 1.0: 1374.0
+Tail: Louis Blanc - Head: Château Landon - Weight: 1.0: 1360.0
+Tail: Jaurès - Head: Bolivar - Weight: 1.0: 1344.0
+Tail: La Muette - Head: Ranelagh - Weight: 1.0: 1335.0
+Tail: Michel-Ange-Auteuil - Head: Jasmin - Weight: 1.0: 1315.0
+Tail: Parmentier - Head: République - Weight: 1.0: 1302.0
+Tail: Odéon - Head: Mabillon - Weight: 1.0: 1299.0
+Tail: Château Landon - Head: Louis Blanc - Weight: 1.0: 1299.0
+Tail: Mabillon - Head: Odéon - Weight: 1.0: 1297.0
+Tail: Jourdain - Head: Pyrenees - Weight: 1.0: 1289.0
+Tail: Mabillon - Head: Sèvres-Babylone - Weight: 1.0: 1285.0
+Tail: Sèvres-Babylone - Head: Mabillon - Weight: 1.0: 1283.0
+Tail: Châtelet - Head: Les Halles - Weight: 1.0: 1278.0
+Tail: Châtelet - Head: Pont Marie (Cité des Arts) - Weight: 1.0: 1276.0
+Tail: Abbesses - Head: Lamarck-Caulaincourt - Weight: 1.0: 1251.0
+Tail: Lamarck-Caulaincourt - Head: Abbesses - Weight: 1.0: 1247.0
+Tail: Monceau - Head: Courcelles - Weight: 1.0: 1218.0
+Tail: Ternes - Head: Charles de Gaulle-Étoile - Weight: 1.0: 1216.0
+Tail: Pelleport - Head: Gambetta - Weight: 1.0: 1201.0
+Tail: Jaurès - Head: Louis Blanc - Weight: 1.0: 1197.0
+Tail: Porte Maillot - Head: Les Sablons (Jardin d'acclimatation) - Weight: 1.0: 1196.0
+Tail: Les Sablons (Jardin d'acclimatation) - Head: Porte Maillot - Weight: 1.0: 1196.0
+Tail: Porte de Champerret - Head: Péreire - Weight: 1.0: 1196.0
+Tail: Mairie de Saint-Ouen - Head: Carrefour-Pleyel - Weight: 1.0: 1196.0
+Tail: Créteil-L'Echat (Hôpital Henri Mondor) - Head: Maisons-Alfort-Les Juilliottes - Weight: 1.0: 1196.0
+Tail: Corentin-Cariou - Head: Porte de la Villette - Weight: 1.0: 1196.0
+Tail: Maisons-Alfort-Les Juilliottes - Head: Créteil-L'Echat (Hôpital Henri Mondor) - Weight: 1.0: 1196.0
+Tail: Péreire - Head: Porte de Champerret - Weight: 1.0: 1196.0
+Tail: Porte de Choisy - Head: Porte d'Italie - Weight: 1.0: 1196.0
+Tail: Convention - Head: Vaugirard (Adolphe Chérioux) - Weight: 1.0: 1196.0
+Tail: Félix Faure - Head: Commerce - Weight: 1.0: 1196.0
+Tail: Exelmans - Head: Porte de Saint-Cloud - Weight: 1.0: 1196.0
+Tail: Porte de Vincennes - Head: Nation - Weight: 1.0: 1196.0
+Tail: Maison Blanche - Head: Le Kremlin-Bicêtre - Weight: 1.0: 1196.0
+Tail: Commerce - Head: Félix Faure - Weight: 1.0: 1196.0
+Tail: Porte de la Villette - Head: Corentin-Cariou - Weight: 1.0: 1196.0
+Tail: Porte de Vanves - Head: Plaisance - Weight: 1.0: 1196.0
+Tail: Carrefour-Pleyel - Head: Mairie de Saint-Ouen - Weight: 1.0: 1196.0
+Tail: Porte de Clichy - Head: Mairie de Clichy - Weight: 1.0: 1196.0
+Tail: Nation - Head: Porte de Vincennes - Weight: 1.0: 1196.0
+Tail: Hoche - Head: Porte de Pantin - Weight: 1.0: 1196.0
+Tail: Vaugirard (Adolphe Chérioux) - Head: Convention - Weight: 1.0: 1196.0
+Tail: Porte d'Italie - Head: Porte de Choisy - Weight: 1.0: 1196.0
+Tail: Porte de Pantin - Head: Hoche - Weight: 1.0: 1196.0
+Tail: Maraichers - Head: Porte de Montreuil - Weight: 1.0: 1196.0
+Tail: Mouton-Duvernet - Head: Denfert-Rochereau - Weight: 1.0: 1196.0
+Tail: Mairie de Clichy - Head: Porte de Clichy - Weight: 1.0: 1196.0
+Tail: Porte de Montreuil - Head: Maraichers - Weight: 1.0: 1196.0
+Tail: Plaisance - Head: Porte de Vanves - Weight: 1.0: 1196.0
+Tail: Denfert-Rochereau - Head: Mouton-Duvernet - Weight: 1.0: 1196.0
+Tail: Le Kremlin-Bicêtre - Head: Maison Blanche - Weight: 1.0: 1196.0
+Tail: Porte de Saint-Cloud - Head: Exelmans - Weight: 1.0: 1196.0
+Tail: Courcelles - Head: Monceau - Weight: 1.0: 1195.0
+Tail: Charles de Gaulle-Étoile - Head: Ternes - Weight: 1.0: 1193.0
+Tail: République - Head: Parmentier - Weight: 1.0: 1193.0
+Tail: Les Halles - Head: Châtelet - Weight: 1.0: 1171.0
+Tail: République - Head: Arts-et-Métiers - Weight: 1.0: 1160.0
+Tail: Sully-Morland - Head: Pont Marie (Cité des Arts) - Weight: 1.0: 1146.0
+Tail: Louis Blanc - Head: Jaurès - Weight: 1.0: 1139.0
+Tail: Pyrenees - Head: Jourdain - Weight: 1.0: 1133.0
+Tail: Ranelagh - Head: Jasmin - Weight: 1.0: 1127.0
+Tail: Les Halles - Head: Etienne Marcel - Weight: 1.0: 1123.0
+Tail: Marcadet-Poissonniers - Head: Château Rouge - Weight: 1.0: 1114.0
+Tail: Château Rouge - Head: Marcadet-Poissonniers - Weight: 1.0: 1110.0
+Tail: Belleville - Head: Couronnes - Weight: 1.0: 1106.0
+Tail: Courcelles - Head: Ternes - Weight: 1.0: 1104.0
+Tail: Couronnes - Head: Belleville - Weight: 1.0: 1091.0
+Tail: Rue Saint-Maur - Head: Parmentier - Weight: 1.0: 1086.0
+Tail: Ternes - Head: Courcelles - Weight: 1.0: 1081.0
+Tail: Bolivar - Head: Buttes-Chaumont - Weight: 1.0: 1062.0
+Tail: Assemblée Nationale - Head: Concorde - Weight: 1.0: 1056.0
+Tail: Havre-Caumartin - Head: Chaussée d'Antin (La Fayette) - Weight: 1.0: 1053.0
+Tail: Concorde - Head: Assemblée Nationale - Weight: 1.0: 1051.0
+Tail: Arts-et-Métiers - Head: République - Weight: 1.0: 1048.0
+Tail: Pont Marie (Cité des Arts) - Head: Sully-Morland - Weight: 1.0: 1038.0
+Tail: Dupleix - Head: La Motte-Picquet-Grenelle - Weight: 1.0: 1029.0
+Tail: Gambetta - Head: Pelleport - Weight: 1.0: 1017.0
+Tail: Etienne Marcel - Head: Les Halles - Weight: 1.0: 1016.0
+Tail: Gare d'Austerlitz - Head: Jussieu - Weight: 1.0: 1016.0
+Tail: Place des Fêtes - Head: Jourdain - Weight: 1.0: 1014.0
+Tail: Réaumur-Sébastopol - Head: Strasbourg-Saint-Denis - Weight: 1.0: 1011.0
+Tail: Bolivar - Head: Jaurès - Weight: 1.0: 1004.0
+Tail: Nation - Head: Picpus - Weight: 1.0: 1001.0
+Tail: Ménilmontant - Head: Père-Lachaise - Weight: 1.0: 1000.0
+Tail: Picpus - Head: Nation - Weight: 1.0: 998.0
+Tail: Chaussée d'Antin (La Fayette) - Head: Havre-Caumartin - Weight: 1.0: 996.0
+Tail: Etienne Marcel - Head: Réaumur-Sébastopol - Weight: 1.0: 995.0
+Tail: Jussieu - Head: Sully-Morland - Weight: 1.0: 990.0
+Tail: Jasmin - Head: Michel-Ange-Auteuil - Weight: 1.0: 986.0
+Tail: Père-Lachaise - Head: Ménilmontant - Weight: 1.0: 985.0
+Tail: Lamarck-Caulaincourt - Head: Jules Joffrin - Weight: 1.0: 977.0
+Tail: Parmentier - Head: Rue Saint-Maur - Weight: 1.0: 977.0
+Tail: Strasbourg-Saint-Denis - Head: Château d'Eau - Weight: 1.0: 975.0
+Tail: Jules Joffrin - Head: Lamarck-Caulaincourt - Weight: 1.0: 973.0
+Tail: Botzaris - Head: Place des Fêtes - Weight: 1.0: 966.0
+Tail: La Motte-Picquet-Grenelle - Head: Dupleix - Weight: 1.0: 965.0
+Tail: Jussieu - Head: Gare d'Austerlitz - Weight: 1.0: 953.0
+Tail: Dugommier - Head: Bercy - Weight: 1.0: 950.0
+Tail: Rue des Boulets - Head: Nation - Weight: 1.0: 945.0
+Tail: Bel-Air - Head: Daumesnil (Félix Eboué) - Weight: 1.0: 936.0
+Tail: Daumesnil (Félix Eboué) - Head: Bel-Air - Weight: 1.0: 933.0
+Tail: Père-Lachaise - Head: Rue Saint-Maur - Weight: 1.0: 926.0
+Tail: Saint-Fargeau - Head: Pelleport - Weight: 1.0: 922.0
+Tail: Château d'Eau - Head: Strasbourg-Saint-Denis - Weight: 1.0: 916.0
+Tail: Couronnes - Head: Ménilmontant - Weight: 1.0: 908.0
+Tail: Jules Joffrin - Head: Marcadet-Poissonniers - Weight: 1.0: 904.0
+Tail: Porte d'Auteuil - Head: Boulogne-Jean-Jaurès - Weight: 1.0: 902.0
+Tail: Michel-Ange-Auteuil - Head: Porte d'Auteuil - Weight: 1.0: 902.0
+Tail: Boulogne-Jean-Jaurès - Head: Michel-Ange-Molitor - Weight: 1.0: 902.0
+Tail: Robespierre - Head: Porte de Montreuil - Weight: 1.0: 900.0
+Tail: Mairie de Clichy - Head: Gabriel-Péri - Weight: 1.0: 900.0
+Tail: Carrefour-Pleyel - Head: Saint-Denis-Porte de Paris - Weight: 1.0: 900.0
+Tail: Porte de Vincennes - Head: Saint-Mandé - Weight: 1.0: 900.0
+Tail: Porte de la Villette - Head: Aubervilliers Pantin (4 Chemins) - Weight: 1.0: 900.0
+Tail: Porte de Saint-Cloud - Head: Marcel Sembat - Weight: 1.0: 900.0
+Tail: Marcadet-Poissonniers - Head: Jules Joffrin - Weight: 1.0: 900.0
+Tail: Porte de Versailles - Head: Convention - Weight: 1.0: 900.0
+Tail: Porte de Champerret - Head: Louise Michel - Weight: 1.0: 900.0
+Tail: Créteil-Université - Head: Créteil-L'Echat (Hôpital Henri Mondor) - Weight: 1.0: 900.0
+Tail: Alésia - Head: Mouton-Duvernet - Weight: 1.0: 900.0
+Tail: Porte d'Ivry - Head: Porte de Choisy - Weight: 1.0: 900.0
+Tail: Marcel Sembat - Head: Porte de Saint-Cloud - Weight: 1.0: 900.0
+Tail: Porte de Vanves - Head: Malakoff-Plateau de Vanves - Weight: 1.0: 900.0
+Tail: Aubervilliers Pantin (4 Chemins) - Head: Porte de la Villette - Weight: 1.0: 900.0
+Tail: Porte de Choisy - Head: Porte d'Ivry - Weight: 1.0: 900.0
+Tail: Gabriel-Péri - Head: Mairie de Clichy - Weight: 1.0: 900.0
+Tail: Louise Michel - Head: Porte de Champerret - Weight: 1.0: 900.0
+Tail: Pont de Neuilly - Head: Les Sablons (Jardin d'acclimatation) - Weight: 1.0: 900.0
+Tail: Créteil-L'Echat (Hôpital Henri Mondor) - Head: Créteil-Université - Weight: 1.0: 900.0
+Tail: Mouton-Duvernet - Head: Alésia - Weight: 1.0: 900.0
+Tail: Le Kremlin-Bicêtre - Head: Villejuif-Léo Lagrange - Weight: 1.0: 900.0
+Tail: Félix Faure - Head: Boucicaut - Weight: 1.0: 900.0
+Tail: Porte de Montreuil - Head: Robespierre - Weight: 1.0: 900.0
+Tail: Saint-Mandé - Head: Porte de Vincennes - Weight: 1.0: 900.0
+Tail: Les Sablons (Jardin d'acclimatation) - Head: Pont de Neuilly - Weight: 1.0: 900.0
+Tail: Bercy - Head: Cour Saint-Emilion - Weight: 1.0: 900.0
+Tail: Convention - Head: Porte de Versailles - Weight: 1.0: 900.0
+Tail: Malakoff-Plateau de Vanves - Head: Porte de Vanves - Weight: 1.0: 900.0
+Tail: Marx-Dormoy - Head: Marcadet-Poissonniers - Weight: 1.0: 900.0
+Tail: Cour Saint-Emilion - Head: Bercy - Weight: 1.0: 900.0
+Tail: Saint-Denis-Porte de Paris - Head: Carrefour-Pleyel - Weight: 1.0: 900.0
+Tail: Marcadet-Poissonniers - Head: Marx-Dormoy - Weight: 1.0: 900.0
+Tail: Villejuif-Léo Lagrange - Head: Le Kremlin-Bicêtre - Weight: 1.0: 900.0
+Tail: Eglise de Pantin - Head: Hoche - Weight: 1.0: 900.0
+Tail: Hoche - Head: Eglise de Pantin - Weight: 1.0: 900.0
+Tail: Boucicaut - Head: Félix Faure - Weight: 1.0: 900.0
+Tail: République - Head: Oberkampf - Weight: 1.0: 896.0
+Tail: Ménilmontant - Head: Couronnes - Weight: 1.0: 893.0
+Tail: Réaumur-Sébastopol - Head: Etienne Marcel - Weight: 1.0: 888.0
+Tail: Charles de Gaulle-Étoile - Head: Kléber - Weight: 1.0: 885.0
+Tail: Sully-Morland - Head: Jussieu - Weight: 1.0: 882.0
+Tail: Kléber - Head: Charles de Gaulle-Étoile - Weight: 1.0: 878.0
+Tail: Nation - Head: Rue des Boulets - Weight: 1.0: 867.0
+Tail: Saint-Augustin - Head: Havre-Caumartin - Weight: 1.0: 867.0
+Tail: Odéon - Head: Cluny-La Sorbonne - Weight: 1.0: 866.0
+Tail: Jussieu - Head: Place Monge (Jardin des Plantes) - Weight: 1.0: 864.0
+Tail: Place Monge (Jardin des Plantes) - Head: Jussieu - Weight: 1.0: 863.0
+Tail: Oberkampf - Head: République - Weight: 1.0: 859.0
+Tail: Jourdain - Head: Place des Fêtes - Weight: 1.0: 858.0
+Tail: Cardinal-Lemoine - Head: Jussieu - Weight: 1.0: 856.0
+Tail: Solférino - Head: Assemblée Nationale - Weight: 1.0: 840.0
+Tail: Assemblée Nationale - Head: Solférino - Weight: 1.0: 835.0
+Tail: Château d'Eau - Head: Gare de l'Est (Verdun) - Weight: 1.0: 825.0
+Tail: Cluny-La Sorbonne - Head: Odéon - Weight: 1.0: 820.0
+Tail: Boissière - Head: Trocadéro - Weight: 1.0: 819.0
+Tail: Rue Saint-Maur - Head: Père-Lachaise - Weight: 1.0: 817.0
+Tail: Strasbourg-Saint-Denis - Head: Réaumur-Sébastopol - Weight: 1.0: 815.0
+Tail: Trocadéro - Head: Boissière - Weight: 1.0: 812.0
+Tail: Duroc - Head: Vaneau - Weight: 1.0: 811.0
+Tail: Jussieu - Head: Cardinal-Lemoine - Weight: 1.0: 810.0
+Tail: Vaneau - Head: Duroc - Weight: 1.0: 808.0
+Tail: Trocadéro - Head: Passy - Weight: 1.0: 804.0
+Tail: Vaneau - Head: Sèvres-Babylone - Weight: 1.0: 801.0
+Tail: Sèvres-Babylone - Head: Vaneau - Weight: 1.0: 798.0
+Tail: Oberkampf - Head: Saint-Ambroise - Weight: 1.0: 792.0
+Tail: Picpus - Head: Bel-Air - Weight: 1.0: 789.0
+Tail: Havre-Caumartin - Head: Saint-Augustin - Weight: 1.0: 789.0
+Tail: Miromesnil - Head: Saint-Augustin - Weight: 1.0: 788.0
+Tail: Bel-Air - Head: Picpus - Weight: 1.0: 786.0
+Tail: Buttes-Chaumont - Head: Botzaris - Weight: 1.0: 784.0
+Tail: Bir-Hakeim (Grenelle) - Head: Dupleix - Weight: 1.0: 781.0
+Tail: Gare de l'Est (Verdun) - Head: Château d'Eau - Weight: 1.0: 766.0
+Tail: Charonne - Head: Rue des Boulets - Weight: 1.0: 764.0
+Tail: La Motte-Picquet-Grenelle - Head: Cambronne - Weight: 1.0: 763.0
+Tail: Cambronne - Head: La Motte-Picquet-Grenelle - Weight: 1.0: 762.0
+Tail: Bastille - Head: Bréguet-Sabin - Weight: 1.0: 746.0
+Tail: Daumesnil (Félix Eboué) - Head: Dugommier - Weight: 1.0: 742.0
+Tail: Passy - Head: Trocadéro - Weight: 1.0: 740.0
+Tail: Pelleport - Head: Saint-Fargeau - Weight: 1.0: 738.0
+Tail: Place des Fêtes - Head: Telegraphe - Weight: 1.0: 737.0
+Tail: Buttes-Chaumont - Head: Bolivar - Weight: 1.0: 722.0
+Tail: Porte des Lilas - Head: Saint-Fargeau - Weight: 1.0: 719.0
+Tail: Dupleix - Head: Bir-Hakeim (Grenelle) - Weight: 1.0: 717.0
+Tail: Sèvres-Babylone - Head: Rue du Bac - Weight: 1.0: 715.0
+Tail: Saint-Ambroise - Head: Oberkampf - Weight: 1.0: 714.0
+Tail: Michel-Ange-Molitor - Head: Michel-Ange-Auteuil - Weight: 1.0: 713.0
+Tail: Saint-Augustin - Head: Miromesnil - Weight: 1.0: 710.0
+Tail: Rue du Bac - Head: Sèvres-Babylone - Weight: 1.0: 710.0
+Tail: Bréguet-Sabin - Head: Bastille - Weight: 1.0: 705.0
+Tail: Rue du Bac - Head: Solférino - Weight: 1.0: 692.0
+Tail: Maubert-Mutualité - Head: Cardinal-Lemoine - Weight: 1.0: 689.0
+Tail: Solférino - Head: Rue du Bac - Weight: 1.0: 687.0
+Tail: Rue des Boulets - Head: Charonne - Weight: 1.0: 686.0
+Tail: Havre-Caumartin - Head: Saint-Lazare - Weight: 1.0: 673.0
+Tail: Kléber - Head: Boissière - Weight: 1.0: 671.0
+Tail: Saint-Lazare - Head: Havre-Caumartin - Weight: 1.0: 664.0
+Tail: Boissière - Head: Kléber - Weight: 1.0: 664.0
+Tail: Passy - Head: Bir-Hakeim (Grenelle) - Weight: 1.0: 652.0
+Tail: Cardinal-Lemoine - Head: Maubert-Mutualité - Weight: 1.0: 643.0
+Tail: Cluny-La Sorbonne - Head: Maubert-Mutualité - Weight: 1.0: 636.0
+Tail: Place des Fêtes - Head: Pré-Saint-Gervais - Weight: 1.0: 626.0
+Tail: Danube - Head: Botzaris - Weight: 1.0: 626.0
+Tail: Pré-Saint-Gervais - Head: Danube - Weight: 1.0: 626.0
+Tail: Quatre Septembre - Head: Opéra - Weight: 1.0: 620.0
+Tail: Opéra - Head: Quatre Septembre - Weight: 1.0: 619.0
+Tail: Place Monge (Jardin des Plantes) - Head: Censier-Daubenton - Weight: 1.0: 618.0
+Tail: Censier-Daubenton - Head: Place Monge (Jardin des Plantes) - Weight: 1.0: 617.0
+Tail: Voltaire (Léon Blum) - Head: Charonne - Weight: 1.0: 615.0
+Tail: Simplon - Head: Marcadet-Poissonniers - Weight: 1.0: 602.0
+Tail: Charles de Gaulle-Étoile - Head: Victor Hugo - Weight: 1.0: 602.0
+Tail: Eglise de Pantin - Head: Bobigny - Pantin (Raymond Queneau) - Weight: 1.0: 602.0
+Tail: Porte d'Orléans (Général Leclerc) - Head: Alésia - Weight: 1.0: 602.0
+Tail: Créteil-Préfecture (Hôtel de Ville) - Head: Créteil-Université - Weight: 1.0: 602.0
+Tail: Louise Michel - Head: Anatole-France - Weight: 1.0: 602.0
+Tail: Porte de Bagnolet - Head: Gambetta - Weight: 1.0: 602.0
+Tail: Porte d'Ivry - Head: Pierre et Marie Curie - Weight: 1.0: 602.0
+Tail: Bibliotheque-Francois Mitterrand - Head: Cour Saint-Emilion - Weight: 1.0: 602.0
+Tail: Gabriel-Péri - Head: Les Agnettes - Weight: 1.0: 602.0
+Tail: Les Agnettes - Head: Gabriel-Péri - Weight: 1.0: 602.0
+Tail: Alésia - Head: Porte d'Orléans (Général Leclerc) - Weight: 1.0: 602.0
+Tail: Lourmel - Head: Boucicaut - Weight: 1.0: 602.0
+Tail: Villejuif-P. Vaillant-Couturier (Htal Brousse) - Head: Villejuif-Léo Lagrange - Weight: 1.0: 602.0
+Tail: Bérault - Head: Saint-Mandé - Weight: 1.0: 602.0
+Tail: Fort d'Aubervilliers - Head: Aubervilliers Pantin (4 Chemins) - Weight: 1.0: 602.0
+Tail: Croix-de-Chavaux (Jacques Duclos) - Head: Robespierre - Weight: 1.0: 602.0
+Tail: Marx-Dormoy - Head: Porte de la Chapelle - Weight: 1.0: 602.0
+Tail: Aubervilliers Pantin (4 Chemins) - Head: Fort d'Aubervilliers - Weight: 1.0: 602.0
+Tail: Esplanade de la Défense - Head: Pont de Neuilly - Weight: 1.0: 602.0
+Tail: Saint-Denis-Porte de Paris - Head: Basilique de Saint-Denis - Weight: 1.0: 602.0
+Tail: Robespierre - Head: Croix-de-Chavaux (Jacques Duclos) - Weight: 1.0: 602.0
+Tail: Pierre et Marie Curie - Head: Porte d'Ivry - Weight: 1.0: 602.0
+Tail: Créteil-Université - Head: Créteil-Préfecture (Hôtel de Ville) - Weight: 1.0: 602.0
+Tail: Saint-Mandé - Head: Bérault - Weight: 1.0: 602.0
+Tail: Boucicaut - Head: Lourmel - Weight: 1.0: 602.0
+Tail: Malakoff-Plateau de Vanves - Head: Malakoff-Rue Etienne Dolet - Weight: 1.0: 602.0
+Tail: Gambetta - Head: Porte de Bagnolet - Weight: 1.0: 602.0
+Tail: Basilique de Saint-Denis - Head: Saint-Denis-Porte de Paris - Weight: 1.0: 602.0
+Tail: Marcel Sembat - Head: Billancourt - Weight: 1.0: 602.0
+Tail: Marcadet-Poissonniers - Head: Simplon - Weight: 1.0: 602.0
+Tail: Porte de la Chapelle - Head: Marx-Dormoy - Weight: 1.0: 602.0
+Tail: Malakoff-Rue Etienne Dolet - Head: Malakoff-Plateau de Vanves - Weight: 1.0: 602.0
+Tail: Porte de Versailles - Head: Corentin-Celton - Weight: 1.0: 602.0
+Tail: Billancourt - Head: Marcel Sembat - Weight: 1.0: 602.0
+Tail: Pont de Neuilly - Head: Esplanade de la Défense - Weight: 1.0: 602.0
+Tail: Anatole-France - Head: Louise Michel - Weight: 1.0: 602.0
+Tail: Victor Hugo - Head: Charles de Gaulle-Étoile - Weight: 1.0: 602.0
+Tail: Bobigny - Pantin (Raymond Queneau) - Head: Eglise de Pantin - Weight: 1.0: 602.0
+Tail: Corentin-Celton - Head: Porte de Versailles - Weight: 1.0: 602.0
+Tail: Villejuif-Léo Lagrange - Head: Villejuif-P. Vaillant-Couturier (Htal Brousse) - Weight: 1.0: 602.0
+Tail: Cour Saint-Emilion - Head: Bibliotheque-Francois Mitterrand - Weight: 1.0: 602.0
+Tail: Bréguet-Sabin - Head: Richard-Lenoir - Weight: 1.0: 600.0
+Tail: Rennes - Head: Sèvres-Babylone - Weight: 1.0: 593.0
+Tail: Sèvres-Babylone - Head: Rennes - Weight: 1.0: 593.0
+Tail: Maubert-Mutualité - Head: Cluny-La Sorbonne - Weight: 1.0: 590.0
+Tail: Bir-Hakeim (Grenelle) - Head: Passy - Weight: 1.0: 588.0
+Tail: Cambronne - Head: Sèvres-Lecourbe - Weight: 1.0: 563.0
+Tail: Sèvres-Lecourbe - Head: Cambronne - Weight: 1.0: 562.0
+Tail: Richard-Lenoir - Head: Bréguet-Sabin - Weight: 1.0: 559.0
+Tail: Saint-Ambroise - Head: Voltaire (Léon Blum) - Weight: 1.0: 557.0
+Tail: Telegraphe - Head: Place des Fêtes - Weight: 1.0: 553.0
+Tail: Palais-Royal (Musée du Louvre) - Head: Tuileries - Weight: 1.0: 549.0
+Tail: Telegraphe - Head: Porte des Lilas - Weight: 1.0: 541.0
+Tail: Tuileries - Head: Palais-Royal (Musée du Louvre) - Weight: 1.0: 538.0
+Tail: Charonne - Head: Voltaire (Léon Blum) - Weight: 1.0: 537.0
+Tail: Tuileries - Head: Concorde - Weight: 1.0: 536.0
+Tail: Châtelet - Head: Louvre-Rivoli - Weight: 1.0: 536.0
+Tail: Saint-Fargeau - Head: Porte des Lilas - Weight: 1.0: 535.0
+Tail: Concorde - Head: Tuileries - Weight: 1.0: 525.0
+Tail: Réaumur-Sébastopol - Head: Sentier - Weight: 1.0: 501.0
+Tail: Sentier - Head: Réaumur-Sébastopol - Weight: 1.0: 500.0
+Tail: Voltaire (Léon Blum) - Head: Saint-Ambroise - Weight: 1.0: 479.0
+Tail: Richard-Lenoir - Head: Oberkampf - Weight: 1.0: 474.0
+Tail: Sentier - Head: Bourse - Weight: 1.0: 473.0
+Tail: Bourse - Head: Sentier - Weight: 1.0: 472.0
+Tail: Bourse - Head: Quatre Septembre - Weight: 1.0: 463.0
+Tail: Quatre Septembre - Head: Bourse - Weight: 1.0: 462.0
+Tail: Censier-Daubenton - Head: Les Gobelins - Weight: 1.0: 446.0
+Tail: Les Gobelins - Head: Censier-Daubenton - Weight: 1.0: 445.0
+Tail: Botzaris - Head: Buttes-Chaumont - Weight: 1.0: 444.0
+Tail: Louvre-Rivoli - Head: Châtelet - Weight: 1.0: 436.0
+Tail: Louvre-Rivoli - Head: Palais-Royal (Musée du Louvre) - Weight: 1.0: 433.0
+Tail: Oberkampf - Head: Richard-Lenoir - Weight: 1.0: 433.0
+Tail: Sèvres-Lecourbe - Head: Pasteur - Weight: 1.0: 400.0
+Tail: Pasteur - Head: Sèvres-Lecourbe - Weight: 1.0: 399.0
+Tail: Les Gobelins - Head: Place d'Italie - Weight: 1.0: 399.0
+Tail: Place d'Italie - Head: Les Gobelins - Weight: 1.0: 398.0
+Tail: Richelieu-Drouot - Head: Chaussée d'Antin (La Fayette) - Weight: 1.0: 386.0
+Tail: Chaussée d'Antin (La Fayette) - Head: Richelieu-Drouot - Weight: 1.0: 382.0
+Tail: Notre-Dame des Champs - Head: Rennes - Weight: 1.0: 381.0
+Tail: Rennes - Head: Notre-Dame des Champs - Weight: 1.0: 381.0
+Tail: Porte des Lilas - Head: Telegraphe - Weight: 1.0: 357.0
+Tail: Hôtel de Ville - Head: Saint-Paul (Le Marais) - Weight: 1.0: 350.0
+Tail: Saint-Paul (Le Marais) - Head: Hôtel de Ville - Weight: 1.0: 350.0
+Tail: Palais-Royal (Musée du Louvre) - Head: Louvre-Rivoli - Weight: 1.0: 333.0
+Tail: Ledru-Rollin - Head: Bastille - Weight: 1.0: 330.0
+Tail: Bastille - Head: Ledru-Rollin - Weight: 1.0: 326.0
+Tail: Pointe du Lac - Head: Créteil-Préfecture (Hôtel de Ville) - Weight: 1.0: 302.0
+Tail: Anatole-France - Head: Pont de Levallois-Bécon - Weight: 1.0: 302.0
+Tail: Mairie de Montreuil - Head: Croix-de-Chavaux (Jacques Duclos) - Weight: 1.0: 302.0
+Tail: Malakoff-Rue Etienne Dolet - Head: Châtillon Montrouge - Weight: 1.0: 302.0
+Tail: Porte de la Chapelle - Head: Front Populaire - Weight: 1.0: 302.0
+Tail: Asnieres-Gennevilliers Les Courtilles - Head: Les Agnettes - Weight: 1.0: 302.0
+Tail: Pierre et Marie Curie - Head: Mairie d'Ivry - Weight: 1.0: 302.0
+Tail: Basilique de Saint-Denis - Head: Saint-Denis-Universite - Weight: 1.0: 302.0
+Tail: Pont de Sèvres - Head: Billancourt - Weight: 1.0: 302.0
+Tail: Esplanade de la Défense - Head: La Défense (Grande Arche) - Weight: 1.0: 302.0
+Tail: Corentin-Celton - Head: Mairie d'Issy - Weight: 1.0: 302.0
+Tail: Croix-de-Chavaux (Jacques Duclos) - Head: Mairie de Montreuil - Weight: 1.0: 302.0
+Tail: Balard - Head: Lourmel - Weight: 1.0: 302.0
+Tail: Porte des Lilas - Head: Mairie des Lilas - Weight: 1.0: 302.0
+Tail: Pont de Levallois-Bécon - Head: Anatole-France - Weight: 1.0: 302.0
+Tail: Boulogne Pont de Saint-Cloud - Head: Boulogne-Jean-Jaurès - Weight: 1.0: 302.0
+Tail: Saint-Denis-Universite - Head: Basilique de Saint-Denis - Weight: 1.0: 302.0
+Tail: La Courneuve-8-Mai-1945 - Head: Fort d'Aubervilliers - Weight: 1.0: 302.0
+Tail: Les Agnettes - Head: Asnieres-Gennevilliers Les Courtilles - Weight: 1.0: 302.0
+Tail: Mairie de Montrouge - Head: Porte d'Orléans (Général Leclerc) - Weight: 1.0: 302.0
+Tail: Victor Hugo - Head: Porte Dauphine (Mal de Lattre) - Weight: 1.0: 302.0
+Tail: Fort d'Aubervilliers - Head: La Courneuve-8-Mai-1945 - Weight: 1.0: 302.0
+Tail: Bobigny - Pantin (Raymond Queneau) - Head: Bobigny - Pablo-Picasso (M5) - Weight: 1.0: 302.0
+Tail: Simplon - Head: Porte de Clignancourt - Weight: 1.0: 302.0
+Tail: Château de Vincennes - Head: Bérault - Weight: 1.0: 302.0
+Tail: Porte d'Orléans (Général Leclerc) - Head: Mairie de Montrouge - Weight: 1.0: 302.0
+Tail: Bibliotheque-Francois Mitterrand - Head: Olympiades - Weight: 1.0: 302.0
+Tail: Villejuif-Louis Aragon - Head: Villejuif-P. Vaillant-Couturier (Htal Brousse) - Weight: 1.0: 302.0
+Tail: Mairie d'Issy - Head: Corentin-Celton - Weight: 1.0: 302.0
+Tail: Bérault - Head: Château de Vincennes - Weight: 1.0: 302.0
+Tail: Boulogne-Jean-Jaurès - Head: Boulogne Pont de Saint-Cloud - Weight: 1.0: 302.0
+Tail: Mairie des Lilas - Head: Porte des Lilas - Weight: 1.0: 302.0
+Tail: Front Populaire - Head: Porte de la Chapelle - Weight: 1.0: 302.0
+Tail: La Défense (Grande Arche) - Head: Esplanade de la Défense - Weight: 1.0: 302.0
+Tail: Bobigny - Pablo-Picasso (M5) - Head: Bobigny - Pantin (Raymond Queneau) - Weight: 1.0: 302.0
+Tail: Créteil-Préfecture (Hôtel de Ville) - Head: Pointe du Lac - Weight: 1.0: 302.0
+Tail: Lourmel - Head: Balard - Weight: 1.0: 302.0
+Tail: Mairie d'Ivry - Head: Pierre et Marie Curie - Weight: 1.0: 302.0
+Tail: Billancourt - Head: Pont de Sèvres - Weight: 1.0: 302.0
+Tail: Olympiades - Head: Bibliotheque-Francois Mitterrand - Weight: 1.0: 302.0
+Tail: Châtillon Montrouge - Head: Malakoff-Rue Etienne Dolet - Weight: 1.0: 302.0
+Tail: Porte de Clignancourt - Head: Simplon - Weight: 1.0: 302.0
+Tail: Porte Dauphine (Mal de Lattre) - Head: Victor Hugo - Weight: 1.0: 302.0
+Tail: Villejuif-P. Vaillant-Couturier (Htal Brousse) - Head: Villejuif-Louis Aragon - Weight: 1.0: 302.0
+Tail: Porte de Bagnolet - Head: Gallieni (Parc de Bagnolet) - Weight: 1.0: 302.0
+Tail: Gallieni (Parc de Bagnolet) - Head: Porte de Bagnolet - Weight: 1.0: 302.0
+Tail: Pont Neuf - Head: Châtelet - Weight: 1.0: 291.0
+Tail: Palais-Royal (Musée du Louvre) - Head: Pyramides - Weight: 1.0: 291.0
+Tail: Montparnasse-Bienvenue - Head: Notre-Dame des Champs - Weight: 1.0: 291.0
+Tail: Notre-Dame des Champs - Head: Montparnasse-Bienvenue - Weight: 1.0: 291.0
+Tail: Pyramides - Head: Palais-Royal (Musée du Louvre) - Weight: 1.0: 288.0
+Tail: Reuilly-Diderot - Head: Faidherbe-Chaligny - Weight: 1.0: 276.0
+Tail: Faidherbe-Chaligny - Head: Reuilly-Diderot - Weight: 1.0: 272.0
+Tail: Montparnasse-Bienvenue - Head: Falguière - Weight: 1.0: 258.0
+Tail: Falguière - Head: Montparnasse-Bienvenue - Weight: 1.0: 258.0
+Tail: Montparnasse-Bienvenue - Head: Edgar-Quinet - Weight: 1.0: 251.0
+Tail: Edgar-Quinet - Head: Montparnasse-Bienvenue - Weight: 1.0: 251.0
+Tail: Pyramides - Head: Opéra - Weight: 1.0: 227.0
+Tail: Opéra - Head: Pyramides - Weight: 1.0: 224.0
+Tail: Temple - Head: Arts-et-Métiers - Weight: 1.0: 218.0
+Tail: Saint-Paul (Le Marais) - Head: Bastille - Weight: 1.0: 216.0
+Tail: Bastille - Head: Saint-Paul (Le Marais) - Weight: 1.0: 216.0
+Tail: Châtelet - Head: Pont Neuf - Weight: 1.0: 205.0
+Tail: Arts-et-Métiers - Head: Temple - Weight: 1.0: 199.0
+Tail: Arts-et-Métiers - Head: Réaumur-Sébastopol - Weight: 1.0: 192.0
+Tail: Havre-Caumartin - Head: Opéra - Weight: 1.0: 190.0
+Tail: Palais-Royal (Musée du Louvre) - Head: Pont Neuf - Weight: 1.0: 188.0
+Tail: Opéra - Head: Havre-Caumartin - Weight: 1.0: 178.0
+Tail: Faidherbe-Chaligny - Head: Ledru-Rollin - Weight: 1.0: 115.0
+Tail: Ledru-Rollin - Head: Faidherbe-Chaligny - Weight: 1.0: 111.0
+Tail: République - Head: Temple - Weight: 1.0: 103.0
+Tail: Réaumur-Sébastopol - Head: Arts-et-Métiers - Weight: 1.0: 102.0
+Tail: Pont Neuf - Head: Palais-Royal (Musée du Louvre) - Weight: 1.0: 102.0
+Tail: Temple - Head: République - Weight: 1.0: 84.0
+Tail: Stalingrad - Head: Louis Blanc - Weight: 1.0: 68.0
+Tail: Louis Blanc - Head: Stalingrad - Weight: 1.0: 65.0
+Tail: Edgar-Quinet - Head: Raspail - Weight: 1.0: 51.0
+Tail: Raspail - Head: Edgar-Quinet - Weight: 1.0: 51.0
+Tail: Falguière - Head: Pasteur - Weight: 1.0: 44.0
+Tail: Pasteur - Head: Falguière - Weight: 1.0: 44.0

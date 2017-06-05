@@ -331,6 +331,21 @@ public class Metro {
       }
       writer3.close();
 
+      Map<Edge,Double> test = BordelArnaud.testWeigthedCluster(graph);
+      ValueComparator bvc2 = new ValueComparator(test);
+      TreeMap<Edge, Double> sorted_map2 = new TreeMap<Edge, Double>(bvc2);
+      sorted_map2.putAll(test);
+      PrintWriter writer4 = new PrintWriter("JamaisCaMarche.txt", "UTF-8");
+      Edge[] edges711 = Arrays.copyOf(sorted_map2.keySet().toArray(), sorted_map2.keySet().size(), Edge[].class);
+      Double[] cluster = Arrays.copyOf(sorted_map2.values().toArray(), sorted_map2.keySet().size(), Double[].class);
+
+      for(int i = 0; i < edges711.length; i++) {
+        writer4.println(edges711[i] + ": " + cluster[i]);
+      }
+      writer4.close();
+      System.out.println(edgesVisited.size());
+      System.out.println(graph.getAllEdges().size());
+
     } catch (IOException e) {
       // do something
     }
