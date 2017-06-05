@@ -19,6 +19,7 @@ public class BreadthFirstPaths<T> {
     edgeTo = new HashMap<>();
     distTo = new HashMap<>();
     lastNodes = new HashMap<>();
+
     edgeEccentricity = new HashMap<>();
     edgesVisited = new HashMap<>();
     this.s = s;
@@ -35,19 +36,24 @@ public class BreadthFirstPaths<T> {
     queue.add(s);
 
     Iterator<Edge<T>> edgeIterator9 = G.getAllEdges().iterator();
-    while(edgeIterator9.hasNext()){
+    while (edgeIterator9.hasNext()) {
       Edge<T> edge9 = edgeIterator9.next();
       edgesVisited.put(edge9, false);
     }
 
 
     while (!queue.isEmpty()) {
+      Map<Node<T>, Edge<T>> nodeEdgeMap;
       Node<T> v = queue.remove();
       Iterator<Edge<T>> iterator = v.getNeighbors().iterator();
+      nodeEdgeMap = new HashMap<>();
       while (iterator.hasNext()) {
         lastNode = new HashMap<>();
         Edge<T> edgeIteration = iterator.next();
         Node<T> nodeIteration = edgeIteration.getHead();
+        nodeEdgeMap.put(nodeIteration, edgeIteration);
+        nodeEdgeMap.get(nodeIteration).getClass();
+
         if (!marked.containsKey(nodeIteration)) {
           if (!distTo.containsKey(nodeIteration)) {
             distTo.put(nodeIteration, distTo.get(v) + 1);
@@ -57,21 +63,24 @@ public class BreadthFirstPaths<T> {
           queue.add(nodeIteration);
         }
         Iterator<Edge<T>> edgeIterator = nodeIteration.getNeighbors().iterator();
-        while(edgeIterator.hasNext()) {
+        while (edgeIterator.hasNext()) {
           Edge<T> edge = edgeIterator.next();
           Node<T> node = edge.getHead();
           Edge<T> reversedEdge = edge;
           Iterator<Edge<T>> edgeIterator1 = node.getNeighbors().iterator();
-          while(edgeIterator1.hasNext()) {
+          while (edgeIterator1.hasNext()) {
             reversedEdge = edgeIterator1.next();
-            if(reversedEdge.getTail() == edge.getHead() && reversedEdge.getHead() == edge.getTail()){
+            if (reversedEdge.getTail() == edge.getHead() && reversedEdge.getHead() == edge.getTail()) {
               break;
             }
           }
-          if(distTo.containsKey(node) && distTo.get(node) < distTo.get(nodeIteration)) {
+          if (distTo.containsKey(node) && distTo.get(node) < distTo.get(nodeIteration)) {
             lastNode.put(node, reversedEdge);
           }
-
+        }
+        if (!lastNode.containsKey(v)) {
+//          System.out.print(G.getNode(v));
+          lastNode.put(v, edgeIteration);
         }
         lastNodes.put(nodeIteration, lastNode);
       }
@@ -82,56 +91,73 @@ public class BreadthFirstPaths<T> {
   private void updateEdgeEccentricity(Node<T> node, Double number) {
 
     Double distance = distTo.get(node);
-    if(distance == 0) {
+    if (distance == 0) {
     } else if (distance == 1) {
       Set<Node<T>> nodes = lastNodes.get(node).keySet();
       Double size = (double) nodes.size();
-      if(size == 1) {
-        size = number;
-      }
       Iterator<Node<T>> nodeIterator = nodes.iterator();
-      while(nodeIterator.hasNext()) {
+      while (nodeIterator.hasNext()) {
         Node<T> tNode = nodeIterator.next();
         Edge<T> edge = lastNodes.get(node).get(tNode);
         if (edgeEccentricity.containsKey(edge)) {
-          edgeEccentricity.put(edge, edgeEccentricity.get(edge) + 1/size);
-          edgesVisited.put(edge,true);
+          edgeEccentricity.put(edge, edgeEccentricity.get(edge) + 1 / size);
+          edgesVisited.put(edge, true);
         } else {
-          edgeEccentricity.put(edge, 1/size);
-          edgesVisited.put(edge,true);
+          edgeEccentricity.put(edge, 1 / size);
+          edgesVisited.put(edge, true);
         }
       }
     } else if (distance > 1) {
       Set<Node<T>> nodes = lastNodes.get(node).keySet();
       Double size = (double) nodes.size();
-      if(size == 1) {
-        size = number;
-      }
       Iterator<Node<T>> nodeIterator = nodes.iterator();
-      while(nodeIterator.hasNext()) {
+      while (nodeIterator.hasNext()) {
         Node<T> tNode = nodeIterator.next();
         Edge<T> edge = lastNodes.get(node).get(tNode);
-        if (edgeEccentricity.containsKey(edge)) {
-          edgeEccentricity.put(edge, edgeEccentricity.get(edge) + (1 / size));
-          edgesVisited.put(edge,true);
-        } else {
-          edgeEccentricity.put(edge, 1/size);
-          edgesVisited.put(edge,true);
+        if (distTo.get(tNode) < distTo.get(node)) {
+          if (edgeEccentricity.containsKey(edge)) {
+            edgeEccentricity.put(edge, edgeEccentricity.get(edge) + (1 / size));
+            edgesVisited.put(edge, true);
+          } else {
+            edgeEccentricity.put(edge, 1 / size);
+            edgesVisited.put(edge, true);
+          }
+          updateEdgeEccentricity(tNode, 1d);
         }
-        updateEdgeEccentricity(tNode, size);
       }
     }
+
   }
 
   private void computeEdgeEccentricity() {
+    System.out.println("I'm called");
+    System.out.println("root node: " + s.getNodeName() + "\n");
     Set<Node<T>> nodeSet = lastNodes.keySet();
-    Iterator<Node<T>> nodeIterator = nodeSet.iterator();
-    while(nodeIterator.hasNext()) {
-      Node<T> node = nodeIterator.next();
-      updateEdgeEccentricity(node, 1d);
+    Map<Node<T>, Edge<T>> lastNode = new HashMap<>();
+    Map<Node<T>, Boolean> nodeBooleanMap = new HashMap<>();
+    for (int i = 0; i < lastNodes.size(); i++) {
+      lastNode = new HashMap<>();
+      Node<T> node = (Node<T>) nodeSet.toArray()[i];
+      lastNode = lastNodes.get(node);
+      System.out.println("parent node: " + node.getNodeName());
+      for(int j = 0; j < lastNode.keySet().size(); j++) {
+        Node<T> node1 = (Node<T>) lastNode.keySet().toArray()[j];
+        System.out.println("child node: " + node1.getNodeName());
+      }
+      nodeBooleanMap.put(node, false);
     }
-
+    System.out.println("\n");
+    Iterator<Node<T>> nodeIterator = nodeSet.iterator();
+    int i = 0;
+    while (nodeIterator.hasNext()) {
+      Node<T> node = nodeIterator.next();
+      if (!nodeBooleanMap.get(node)) {
+        updateEdgeEccentricity(node, 1d);
+        nodeBooleanMap.put(node, true);
+      }
+    }
   }
+
   public boolean hasPathTo(Node v) {
     if (marked.containsKey(v)) {
       return marked.get(v);
@@ -160,6 +186,7 @@ public class BreadthFirstPaths<T> {
   public Map<Node<T>, Map<Node<T>, Edge<T>>> getLastNodes() {
     return lastNodes;
   }
+
 
   public Map<Edge<T>, Boolean> getEdgesVisited() {
     return edgesVisited;
@@ -206,7 +233,7 @@ public class BreadthFirstPaths<T> {
       Iterator<Edge> edgeIterator = edges.iterator();
       while (edgeIterator.hasNext()) {
         Edge edge = edgeIterator.next();
-        if(edgeEccentricity.containsKey(edge)) {
+        if (edgeEccentricity.containsKey(edge)) {
           edgeEccentricity.put(edge, edgeEccentricity.get(edge) + edgeEccentricities.get(edge));
         } else {
           edgeEccentricity.put(edge, edgeEccentricities.get(edge));
@@ -214,12 +241,12 @@ public class BreadthFirstPaths<T> {
 //        System.out.println("edge: " + edge + ", eccentricity: " + edgeEccentricities.get(edge));
       }
     }
+    System.out.println("****************************************\n****************************************");
     Set<Edge> edges = edgeEccentricity.keySet();
     Iterator<Edge> edgeIterator = edges.iterator();
     while (edgeIterator.hasNext()) {
       Edge edge = edgeIterator.next();
       System.out.println("edge: " + edge + ", eccentricity: " + edgeEccentricity.get(edge));
     }
-    System.out.println(bfsPaths.getEdgesVisited());
   }
 }
