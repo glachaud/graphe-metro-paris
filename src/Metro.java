@@ -288,29 +288,15 @@ public class Metro {
       TreeMap<Edge, Double> sorted_map = new TreeMap<Edge, Double>(bvc);
       sorted_map.putAll(edgeEccentricity);
       PrintWriter writer1 = new PrintWriter("edge-eccentricities.txt", "UTF-8");
-      writer1.println("results: " + sorted_map);
+      Edge[] edges = Arrays.copyOf(sorted_map.keySet().toArray(), sorted_map.keySet().size(), Edge[].class);
+      Double[] eccentricities = Arrays.copyOf(sorted_map.values().toArray(), sorted_map.keySet().size(), Double[].class);
+      for(int i = 0; i < edges.length; i++) {
+        writer1.println(edges[i] + ": " + eccentricities[i]);
+      }
       writer1.close();
 
     } catch (IOException e) {
       // do something
     }
-  }
-
-}
-class ValueComparator implements Comparator<Edge> {
-  Map<Edge, Double> base;
-
-  public ValueComparator(Map<Edge, Double> base) {
-    this.base = base;
-  }
-
-  // Note: this comparator imposes orderings that are inconsistent with
-  // equals.
-  public int compare(Edge u, Edge v) {
-    if (base.get(u) >= base.get(v)) {
-      return -1;
-    } else {
-      return 1;
-    } // returning 0 would merge keys
   }
 }
