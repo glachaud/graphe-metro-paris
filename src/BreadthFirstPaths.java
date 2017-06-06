@@ -42,13 +42,17 @@ public class BreadthFirstPaths<T> {
     }
 
     while (!queue.isEmpty()) {
-      Map<Node<T>, Edge<T>> nodeEdgeMap;
       Node<T> v = queue.remove();
       Iterator<Edge<T>> iterator = v.getNeighbors().iterator();
       while (iterator.hasNext()) {
         lastNode = new HashMap<>();
         Edge<T> edgeIteration = iterator.next();
         Node<T> nodeIteration = edgeIteration.getHead();
+        if(nodeIteration.getNodeName().equals("Boulogne-Jean-Jaurès")) {
+          System.out.println("initial node:" + v.getNodeName());
+          System.out.println("It's our time to play");
+          System.out.println(edgeIteration);
+        }
         if (!marked.containsKey(nodeIteration)) {
           if (!distTo.containsKey(nodeIteration)) {
             distTo.put(nodeIteration, distTo.get(v) + 1);
@@ -60,24 +64,48 @@ public class BreadthFirstPaths<T> {
         Iterator<Edge<T>> edgeIterator = nodeIteration.getNeighbors().iterator();
         while (edgeIterator.hasNext()) {
           Edge<T> edge = edgeIterator.next();
+          if(nodeIteration.getNodeName().equals("Boulogne-Jean-Jaurès")) {
+            System.out.println("Here is the non-reversed edge: " + edge);
+          }
           Node<T> node = edge.getHead();
           Edge<T> reversedEdge = edge;
           Iterator<Edge<T>> edgeIterator1 = node.getNeighbors().iterator();
           while (edgeIterator1.hasNext()) {
             reversedEdge = edgeIterator1.next();
             if (reversedEdge.getTail() == edge.getHead() && reversedEdge.getHead() == edge.getTail()) {
+              if(nodeIteration.getNodeName().equals("Boulogne-Jean-Jaurès")) {
+                System.out.println("Here is the reversed edge: " + reversedEdge);
+              }
               break;
             }
           }
+          if(nodeIteration.getNodeName().equals("Boulogne-Jean-Jaurès")) {
+            System.out.println("distoTo node: " + distTo.get(node) + ", node name:" + node.getNodeName());
+            System.out.println("distTo nodeIteration: " + distTo.get(nodeIteration));
+          }
           if (distTo.containsKey(node) && distTo.get(node) < distTo.get(nodeIteration)) {
-            lastNode.put(node, reversedEdge);
+            if(nodeIteration.getNodeName().equals("Porte d'Auteuil")) {
+              System.out.println("I'm added:" + reversedEdge);
+              lastNode.put(node, reversedEdge);
+            }
           }
         }
-        if (!lastNode.containsKey(v) && distTo.get(v) < distTo.get(nodeIteration)) {
-//          System.out.print(G.getNode(v));
+        if(nodeIteration.getNodeName().equals("Boulogne-Jean-Jaurès") && v.getNodeName().equals("Porte d'Auteuil")) {
+          System.out.println("distoTo node source: " + distTo.get(v) + ", node name:" + v.getNodeName());
+          System.out.println("distTo nodeIteration: " + distTo.get(nodeIteration));
+        }
+        if (!lastNode.containsKey(v) && distTo.get(v) < distTo.get(nodeIteration) && !nodeIteration.equals(s)) {
+
           lastNode.put(v, edgeIteration);
         }
-        lastNodes.put(nodeIteration, lastNode);
+        if(lastNodes.containsKey(nodeIteration)) {
+          Map<Node<T>, Edge<T>> mergeMap = new HashMap<>();
+          mergeMap.putAll(lastNodes.get(nodeIteration));
+          mergeMap.putAll(lastNode);
+          lastNodes.put(nodeIteration, mergeMap);
+        } else {
+          lastNodes.put(nodeIteration, lastNode);
+        }
       }
     }
     computeEdgeEccentricity();
@@ -126,16 +154,12 @@ public class BreadthFirstPaths<T> {
   }
 
   private void computeEdgeEccentricity() {
+    System.out.println("***********************************");
     Set<Node<T>> nodeSet = lastNodes.keySet();
     Map<Node<T>, Edge<T>> lastNode = new HashMap<>();
     Map<Node<T>, Boolean> nodeBooleanMap = new HashMap<>();
     for (int i = 0; i < lastNodes.size(); i++) {
-      lastNode = new HashMap<>();
       Node<T> node = (Node<T>) nodeSet.toArray()[i];
-      lastNode = lastNodes.get(node);
-      for(int j = 0; j < lastNode.keySet().size(); j++) {
-        Node<T> node1 = (Node<T>) lastNode.keySet().toArray()[j];
-      }
       nodeBooleanMap.put(node, false);
     }
     Iterator<Node<T>> nodeIterator = nodeSet.iterator();
@@ -143,6 +167,14 @@ public class BreadthFirstPaths<T> {
     while (nodeIterator.hasNext()) {
       Node<T> node = nodeIterator.next();
       if (!nodeBooleanMap.get(node)) {
+//        if(node.getNodeName().equals("Michel-Ange-Molitor")) {
+        if(node.getNodeName().equals("Boulogne-Jean-Jaurès")) {
+          System.out.println(node.getNeighbors());
+          System.out.println(lastNodes.get(node));
+          if(lastNodes.get(node).size() == 0) {
+            System.out.println("It's null:" + node.getNodeName());
+          }
+        }
         updateEdgeEccentricity(node, 1d);
         nodeBooleanMap.put(node, true);
       }

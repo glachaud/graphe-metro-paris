@@ -314,22 +314,19 @@ public class Metro {
         writer2.println(edges71[i] + ": " + visited[i]);
       }
       writer2.close();
-      System.out.println(edgesVisited.size());
-      System.out.println(graph.getAllEdges().size());
 
-      PrintWriter writer3 = new PrintWriter("debug.txt", "UTF-8");
+      /*PrintWriter writer3 = new PrintWriter("debug.txt", "UTF-8");
       BreadthFirstPaths breadthFirstPaths1 = breadthFirstPaths.get(metro.getNode("Danube"));
       Stack<Node> path = breadthFirstPaths1.pathTo(metro.getNode("La Motte-Picquet-Grenelle"));
       for(Node node : path) {
         System.out.println(node.getNodeName());
-
       }
       Edge[] edges92 = Arrays.copyOf(edgesVisited.keySet().toArray(), breadthFirstPaths1.getEdgesVisited().keySet().size(), Edge[].class);
       Boolean[] visited2 = Arrays.copyOf(edgesVisited.values().toArray(), breadthFirstPaths1.getEdgesVisited().values().size(), Boolean[].class);
       for(int i = 0; i < edges92.length; i++) {
         writer3.println(edges92[i] + ": " + visited2[i]);
       }
-      writer3.close();
+      writer3.close();*/
 
       Map<Edge,Double> test = BordelArnaud.testWeigthedCluster(graph);
       ValueComparator bvc2 = new ValueComparator(test);
@@ -343,8 +340,6 @@ public class Metro {
         writer4.println(edges711[i] + ": " + cluster[i]);
       }
       writer4.close();
-      System.out.println(edgesVisited.size());
-      System.out.println(graph.getAllEdges().size());
 
     } catch (IOException e) {
       // do something

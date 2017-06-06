@@ -115,7 +115,7 @@ Tail: Avron - Head: Alexandre-Dumas - Weight: 1.0: true
 Tail: Créteil-Préfecture (Hôtel de Ville) - Head: Pointe du Lac - Weight: 1.0: true
 Tail: Opéra - Head: Richelieu-Drouot - Weight: 1.0: true
 Tail: Gare d'Austerlitz - Head: Saint-Marcel - Weight: 1.0: true
-Tail: Boulogne-Jean-Jaurès - Head: Michel-Ange-Molitor - Weight: 1.0: false
+Tail: Boulogne-Jean-Jaurès - Head: Michel-Ange-Molitor - Weight: 1.0: true
 Tail: Notre-Dame des Champs - Head: Montparnasse-Bienvenue - Weight: 1.0: true
 Tail: Duroc - Head: Saint-Francois-Xavier - Weight: 1.0: true
 Tail: Mairie de Clichy - Head: Porte de Clichy - Weight: 1.0: true
@@ -251,7 +251,7 @@ Tail: Porte de Clichy - Head: Mairie de Clichy - Weight: 1.0: true
 Tail: Louis Blanc - Head: Stalingrad - Weight: 1.0: true
 Tail: Jussieu - Head: Sully-Morland - Weight: 1.0: true
 Tail: Cité - Head: Châtelet - Weight: 1.0: true
-Tail: Botzaris - Head: Place des Fêtes - Weight: 1.0: false
+Tail: Botzaris - Head: Place des Fêtes - Weight: 1.0: true
 Tail: Filles du Calvaire - Head: Saint-Sébastien-Froissart - Weight: 1.0: true
 Tail: Rue de la Pompe (Av. Georges Mandel) - Head: Trocadéro - Weight: 1.0: true
 Tail: Liberté - Head: Charenton-Ecoles - Weight: 1.0: true
