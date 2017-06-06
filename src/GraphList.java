@@ -45,33 +45,7 @@ public class GraphList<T> {
     }
 
   }
-
-  public void addWeightedStation(Node u, Node v, Double weight, String line) {
-    Edge newEdge = new Edge(u, v, weight);
-    newEdge.addLine(line);
-    if (adj.indexOf(u) > -1 && adj.indexOf(v) > -1) {
-      Iterator<Edge<T>> edgeIterator = u.getNeighbors().iterator();
-      Boolean exists = false;
-      while (edgeIterator.hasNext()) {
-        Edge<T> edge = edgeIterator.next();
-        if (edge.equals(newEdge)) {
-          exists = true;
-          if (edge.getLines().indexOf(line) > -1) {
-          } else {
-            edge.addLine(line);
-          }
-        }
-      }
-      if (!exists) {
-        adj.get(adj.indexOf(u)).addEdge(newEdge);
-        edgeCount++;
-      }
-    } else {
-      System.out.println("This edge couldn't be added to the graph");
-    }
-
-  }
-
+  
 
   public Node getNode(T nodeName) {
     Iterator<Node<T>> iterator = adj.iterator();
