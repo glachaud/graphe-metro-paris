@@ -141,205 +141,48 @@ public class Metro {
     this.metroGraph = metroGraph;
   }
 
-  public Stack<Node<Station>> getLongestShortestPath() {
-
-    Double distance = 0d;
-    Stack<Node<Station>> edgeTo = new Stack();
-
-    ArrayList<Node<Station>> arrayList = metroGraph.getAdjList();
-    Iterator<Node<Station>> iterator = arrayList.iterator();
-    HashMap<Node<Station>, DijkstraSP> nodeDijkstraSPHashMap = new HashMap<>();
-    while (iterator.hasNext()) {
-      Node<Station> nodeNode = iterator.next();
-      nodeDijkstraSPHashMap.put(nodeNode, new DijkstraSP(metroGraph, nodeNode));
-    }
-
-    Iterator<DijkstraSP> dijkstraSPIterator = nodeDijkstraSPHashMap.values().iterator();
-    while (dijkstraSPIterator.hasNext()) {
-      DijkstraSP dijkstraSP = dijkstraSPIterator.next();
-      Iterator<Node> keyIterator = dijkstraSP.getDistTo().keySet().iterator();
-      while (keyIterator.hasNext()) {
-        Node<Station> node = keyIterator.next();
-        Double dijsktraDistance = dijkstraSP.distTo(node);
-        if (dijsktraDistance > distance) {
-          distance = dijsktraDistance;
-          edgeTo = dijkstraSP.shortestPathTo(node);
-        }
-      }
-    }
-    System.out.println(distance);
-
-    return edgeTo;
-  }
-
-  /*public Map<Edge<Station>, Double> getEdgesEccentricity() {
-    Map<Edge<Station>, Double> edgeDoubleMap = new HashMap<Edge<Station>, Double>();
-
-    ArrayList<Node<Station>> arrayList = metroGraph.getAdjList();
-    Iterator<Node<Station>> iterator = arrayList.iterator();
-    HashMap<Node<Station>, DijkstraSP> nodeDijkstraSPHashMap = new HashMap<>();
-    while (iterator.hasNext()) {
-      Node<Station> nodeNode = iterator.next();
-      nodeDijkstraSPHashMap.put(nodeNode, new DijkstraSP(metroGraph, nodeNode));
-    }
-
-    Iterator<DijkstraSP> dijkstraSPIterator = nodeDijkstraSPHashMap.values().iterator();
-    while (dijkstraSPIterator.hasNext()) {
-      DijkstraSP dijkstraSP = dijkstraSPIterator.next();
-      Iterator<Edge> edgeIterator = dijkstraSP.getEdgeTo().keySet().iterator();
-      while(edgeIterator.hasNext()) {
-        Edge edge = edgeIterator.next();
-        if(edgeDoubleMap.containsKey(edge)) {
-          edgeDoubleMap.put(edge, edgeDoubleMap.get(edge)+1);
-        } else {
-          edgeDoubleMap.put(edge, 1d);
-        }
-      }
-    }
-
-    return edgeDoubleMap;
-  }*/
 
   public static void main(String[] args) {
-    Metro metro = new Metro("src/reseau.json", false);
+    Metro metro = new Metro("src/reseau.json", true);
     GraphList<Station> graph = metro.getMetroGraph();
-//    Iterator<Node<Station>> iterator = metroGraph.getAdjList().iterator();
-//    while (iterator.hasNext()) {
-//      Node<Station> nodeNode = iterator.next();
-//      Station metroNode = nodeNode.getNode();
-//      System.out.println(metroNode.getId() + ": " + nodeNode.getNodeName());
-//    }
-    DijkstraSP dijkstraSP = new DijkstraSP(graph, metro.getNode("Mairie d'Issy"));
 
-//    Stack<Node<Station>> nodeStack = dijkstraSP.shortestPathTo(metro.getNode("Bercy"));
-//    while (!nodeStack.isEmpty()) {
-//      System.out.println(nodeStack.pop().getNodeName());
-//    }
-//    System.out.println(dijkstraSP.distTo(metro.getNode("Bercy")));
-
-    ArrayList<Node<Station>> arrayList = metro.getMetroGraph().getAdjList();
-    Iterator<Node<Station>> iterator = arrayList.iterator();
-    HashMap<Node<Station>, DijkstraSP> nodeDijkstraSPHashMap = new HashMap<>();
-    while (iterator.hasNext()) {
-      Node<Station> nodeNode = iterator.next();
-      nodeDijkstraSPHashMap.put(nodeNode, new DijkstraSP(graph, nodeNode));
+    Stack<Node<Station>> nodeStack = LongestPath.getLongestPathWeighted(graph);
+    Iterator<Node<Station>> nodeIterator = nodeStack.iterator();
+    while(nodeIterator.hasNext()) {
+      Node<Station> node = nodeIterator.next();
+      System.out.println(node.getNodeName());
     }
 
-//    DijkstraSP dijkstraSP1 = nodeDijkstraSPHashMap.get(metro.getNode("Bercy"));
-//    Stack<Node<Station>> nodeStack1 = dijkstraSP1.shortestPathTo(metro.getNode("Marcel Sembat"));
-//    while (!nodeStack1.isEmpty()) {
-//      System.out.println(nodeStack1.pop().getNodeName());
-//    }
-//    System.out.println(dijkstraSP1.distTo(metro.getNode("Marcel Sembat")));
 
 
-//    Stack<Node<Station>> nodeStack2 = metro.getLongestShortestPath();
-//    while (!nodeStack2.isEmpty()) {
-//      System.out.println(nodeStack2.pop().getNodeName());
-//    }
+    Map<Edge<Station>, Double> edgeEccentricityUnweighted = MapCluster.getUnweightedCluster(metro.getMetroGraph());
+    ValueComparator bvc = new ValueComparator(edgeEccentricityUnweighted);
+    TreeMap<Edge<Station>, Double> sorted_map = new TreeMap<Edge<Station>, Double>(bvc);
+    sorted_map.putAll(edgeEccentricityUnweighted);
+    Edge[] edgesUnweighted = Arrays.copyOf(sorted_map.keySet().toArray(), sorted_map.keySet().size(), Edge[].class);
+    Double[] eccentricitiesUnweighted = Arrays.copyOf(sorted_map.values().toArray(), sorted_map.keySet().size(), Double[].class);
 
+    Map<Edge<Station>, Double> edgeEccentricityWeighted = MapCluster.getWeigthedCluster(graph);
+    ValueComparator bvc2 = new ValueComparator(edgeEccentricityWeighted);
+    TreeMap<Edge<Station>, Double> sorted_map2 = new TreeMap<Edge<Station>, Double>(bvc2);
+    sorted_map2.putAll(edgeEccentricityWeighted);
+    Edge[] edgesWeighted = Arrays.copyOf(sorted_map2.keySet().toArray(), sorted_map2.keySet().size(), Edge[].class);
+    Double[] eccentricitesWeighted = Arrays.copyOf(sorted_map2.values().toArray(), sorted_map2.keySet().size(), Double[].class);
 
-    // System.out.println("--------------");
-    DijkstraSP dijkstraSP1 = nodeDijkstraSPHashMap.get(metro.getNode("Porte d'Auteuil"));
-    Stack<Node<Station>> nodeStack1 = dijkstraSP1.shortestPathTo(metro.getNode("Pointe du Lac"));
-    Double distance = 0d;
-
-
-//    Stack<Node<Station>> nodeStack2 = metro.getLongestShortestPath();
-//    while (!nodeStack2.isEmpty()) {
-//      distance += 1;
-//      Node<Station> node = nodeStack2.pop();
-//      System.out.println(node.getNodeName());
-//    }
-
-
-
-    Map<Edge, Double> edgeEccentricity = new HashMap<>();
-
-
-    Iterator<Node<Station>> nodeIterator1 = graph.getAdjList().iterator();
-    Map<Node, BreadthFirstPaths> breadthFirstPaths = new HashMap<>();
-    while (nodeIterator1.hasNext()) {
-      Node node = nodeIterator1.next();
-      breadthFirstPaths.put(node, new BreadthFirstPaths(graph, node));
-    }
-    Set<Node> nodeSet1 = breadthFirstPaths.keySet();
-    Iterator<Node> nodeIterator2 = nodeSet1.iterator();
-
-    Map<Edge, Boolean> edgesVisited = new HashMap<>();
-    Iterator<Edge> edgeIterator9 = graph.getAllEdges().iterator();
-    while(edgeIterator9.hasNext()){
-      Edge edge9 = edgeIterator9.next();
-      edgesVisited.put(edge9, false);
-    }
-    try{
-
-      PrintWriter writer = new PrintWriter("console-output.txt", "UTF-8");
-      while (nodeIterator2.hasNext()) {
-        Node node = nodeIterator2.next();
-        BreadthFirstPaths breadthFirstPaths1 = breadthFirstPaths.get(node);
-        Map<Edge, Double> edgeEccentricities = breadthFirstPaths1.getEdgeEccentricity();
-        Set<Edge> edges = edgeEccentricities.keySet();
-        Map<Edge, Boolean> edgesVisited7 = breadthFirstPaths1.getEdgesVisited();
-        Iterator<Edge> edgeIterator = edges.iterator();
-        while (edgeIterator.hasNext()) {
-          Edge edge = edgeIterator.next();
-          if(edgeEccentricity.containsKey(edge)) {
-            edgeEccentricity.put(edge, edgeEccentricity.get(edge) + edgeEccentricities.get(edge));
-          } else {
-            edgeEccentricity.put(edge, edgeEccentricities.get(edge));
-          }
-          if(edgesVisited7.get(edge)){
-            edgesVisited.put(edge, true);
-          }
-        }
+    try {
+      PrintWriter writerUnweighted = new PrintWriter("edge-eccentricity-unweighted.txt", "UTF-8");
+      for (int i = 0; i < edgesUnweighted.length; i++) {
+        writerUnweighted.println(edgesUnweighted[i] + ": " + eccentricitiesUnweighted[i]);
       }
-      writer.close();
+      writerUnweighted.close();
 
-      ValueComparator bvc = new ValueComparator(edgeEccentricity);
-      TreeMap<Edge, Double> sorted_map = new TreeMap<Edge, Double>(bvc);
-      sorted_map.putAll(edgeEccentricity);
-      PrintWriter writer1 = new PrintWriter("edge-eccentricities.txt", "UTF-8");
-      Edge[] edges = Arrays.copyOf(sorted_map.keySet().toArray(), sorted_map.keySet().size(), Edge[].class);
-      Double[] eccentricities = Arrays.copyOf(sorted_map.values().toArray(), sorted_map.keySet().size(), Double[].class);
-      for(int i = 0; i < edges.length; i++) {
-        writer1.println(edges[i] + ": " + eccentricities[i]);
-      }
-      writer1.close();
 
-      PrintWriter writer2 = new PrintWriter("edges.txt", "UTF-8");
-      Edge[] edges71 = Arrays.copyOf(edgesVisited.keySet().toArray(), edgesVisited.keySet().size(), Edge[].class);
-      Boolean[] visited = Arrays.copyOf(edgesVisited.values().toArray(), edgesVisited.values().size(), Boolean[].class);
-      for(int i = 0; i < edges71.length; i++) {
-        writer2.println(edges71[i] + ": " + visited[i]);
-      }
-      writer2.close();
+      PrintWriter writerWeighted = new PrintWriter("edge-eccentricity-weighted.txt", "UTF-8");
 
-      /*PrintWriter writer3 = new PrintWriter("debug.txt", "UTF-8");
-      BreadthFirstPaths breadthFirstPaths1 = breadthFirstPaths.get(metro.getNode("Danube"));
-      Stack<Node> path = breadthFirstPaths1.pathTo(metro.getNode("La Motte-Picquet-Grenelle"));
-      for(Node node : path) {
-        System.out.println(node.getNodeName());
+      for (int i = 0; i < edgesWeighted.length; i++) {
+        writerWeighted.println(edgesWeighted[i] + ": " + eccentricitesWeighted[i]);
       }
-      Edge[] edges92 = Arrays.copyOf(edgesVisited.keySet().toArray(), breadthFirstPaths1.getEdgesVisited().keySet().size(), Edge[].class);
-      Boolean[] visited2 = Arrays.copyOf(edgesVisited.values().toArray(), breadthFirstPaths1.getEdgesVisited().values().size(), Boolean[].class);
-      for(int i = 0; i < edges92.length; i++) {
-        writer3.println(edges92[i] + ": " + visited2[i]);
-      }
-      writer3.close();*/
-
-      Map<Edge,Double> test = BordelArnaud.testWeigthedCluster(graph);
-      ValueComparator bvc2 = new ValueComparator(test);
-      TreeMap<Edge, Double> sorted_map2 = new TreeMap<Edge, Double>(bvc2);
-      sorted_map2.putAll(test);
-      PrintWriter writer4 = new PrintWriter("JamaisCaMarche.txt", "UTF-8");
-      Edge[] edges711 = Arrays.copyOf(sorted_map2.keySet().toArray(), sorted_map2.keySet().size(), Edge[].class);
-      Double[] cluster = Arrays.copyOf(sorted_map2.values().toArray(), sorted_map2.keySet().size(), Double[].class);
-
-      for(int i = 0; i < edges711.length; i++) {
-        writer4.println(edges711[i] + ": " + cluster[i]);
-      }
-      writer4.close();
+      writerWeighted.close();
 
     } catch (IOException e) {
       // do something

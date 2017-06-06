@@ -5,8 +5,8 @@ import java.util.*;
  */
 public class DijkstraSP<T> {
 
-  private Map<Node, Edge> edgeTo;
-  private Map<Node, Double> distTo;
+  private Map<Node<T>, Edge<T>> edgeTo;
+  private Map<Node<T>, Double> distTo;
   PriorityQueue<Node<T>> pq;
   private final Node s;
 
@@ -88,19 +88,19 @@ public class DijkstraSP<T> {
     return true;
   }
 
-  public Map<Node, Edge> getEdgeTo() {
+  public Map<Node<T>, Edge<T>> getEdgeTo() {
     return edgeTo;
   }
 
-  public void setEdgeTo(Map<Node, Edge> edgeTo) {
+  public void setEdgeTo(Map<Node<T>, Edge<T>> edgeTo) {
     this.edgeTo = edgeTo;
   }
 
-  public Map<Node, Double> getDistTo() {
+  public Map<Node<T>, Double> getDistTo() {
     return distTo;
   }
 
-  public void setDistTo(Map<Node, Double> distTo) {
+  public void setDistTo(Map<Node<T>, Double> distTo) {
     this.distTo = distTo;
   }
 
@@ -117,13 +117,5 @@ public class DijkstraSP<T> {
   }
 
   public static void main(String[] args) throws java.io.IOException {
-    GraphList graph = new GraphList("src/facebook_combined.txt", " ", true);
-    DijkstraSP graphComponent = new DijkstraSP(graph, graph.getNode("0"));
-    Stack<Node> nodeStack = graphComponent.shortestPathTo(graph.getNode("2223"));
-    while (!nodeStack.isEmpty()) {
-      System.out.println(nodeStack.pop().getNodeName());
-    }
-    System.out.println("The distance is: " + graphComponent.distTo(graph.getNode("2223")));
-
   }
 }
