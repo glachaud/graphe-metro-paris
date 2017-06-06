@@ -61,7 +61,7 @@ public class LongestPath {
         if (bfsDistance > distance) {
           distance = bfsDistance;
           Node<Station> nodeTo = (Node<Station>) bfsPath.getEdgeTo().get(bfsPathKey);
-          longestPathStack = bfsPath.pathTo(bfsPathKey);
+          longestPathStack = bfsPath.shortestPathTo(bfsPathKey);
         }
       }
     }

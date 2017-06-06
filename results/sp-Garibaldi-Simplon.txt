@@ -1,0 +1,23 @@
+Garibaldi
+[13]
+Porte de Saint-Ouen
+[13]
+Guy-Môquet
+[13]
+La Fourche
+[13]
+Place de Clichy
+[2]
+Blanche
+[2]
+Pigalle
+[2]
+Anvers
+[2]
+Barbès-Rochechouart
+[4]
+Château Rouge
+[4]
+Marcadet-Poissonniers
+[4]
+Simplon

@@ -132,11 +132,11 @@ public class BreadthFirstPaths<T> {
     return distTo.get(v) < Double.POSITIVE_INFINITY;
   }
 
-  public Stack<Node> pathTo(Node v) {
+  public Stack<Node<T>> shortestPathTo(Node v) {
     if (!hasPathTo(v)) {
       return null;
     }
-    Stack<Node> path = new Stack<Node>();
+    Stack<Node<T>> path = new Stack<Node<T>>();
     Node currentNode = v;
     while (currentNode != s) {
       path.push(currentNode);

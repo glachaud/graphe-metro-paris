@@ -166,6 +166,11 @@ public class Metro {
     Metro metroUnweighted = new Metro("src/reseau.json", false);
     GraphList<Station> graphUnweighted = metroUnweighted.getMetroGraph();
 
+    Stack<Node<Station>>  shortestPathTestUnweighted = new BreadthFirstPaths<Station>(graphUnweighted, metroUnweighted.getNode("Garibaldi")).shortestPathTo(metroUnweighted.getNode("Simplon"));
+    metroUnweighted.printGraph(shortestPathTestUnweighted, "results/sp-Garibaldi-Simplon.txt");
+
+    Stack<Node<Station>>  shortestPathTestWeighted = new DijkstraSP<Station>(graphWeighted, metroWeighted.getNode("Marcel Sembat")).shortestPathTo(metroWeighted.getNode("Balard"));
+    metroWeighted.printGraph(shortestPathTestWeighted, "results/sp-MarcelSembat-Balard.txt");
 
     Stack<Node<Station>> longestWeightedPath = (Stack<Node<Station>>) LongestPath.getLongestPathWeighted(graphWeighted).keySet().toArray()[0];
 
