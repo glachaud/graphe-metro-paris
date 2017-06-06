@@ -16,18 +16,27 @@ public class Station {
 
   String nodeName;
 
-  List metros;
+  List<String> metros;
 
   Double lat;
 
   Double lng;
 
-  public Station(Integer id, String nodeName, List metros, Double lat, Double lng) {
+  Map<String, List<String>> lineNeighbors;
+
+  public Station(Integer id, String nodeName, List<String> metros, Double lat, Double lng) {
     this.id = id;
     this.nodeName = nodeName;
     this.metros = metros;
     this.lat = lat;
     this.lng= lng;
+    this.lineNeighbors = new HashMap<>();
+    Iterator<String> lines = metros.iterator();
+    List<String> newLineNeigbors = new ArrayList<>();
+    while(lines.hasNext()) {
+      String line = lines.next();
+      lineNeighbors.put(line, newLineNeigbors);
+    }
   }
 
   public Integer getId() {
@@ -72,6 +81,35 @@ public class Station {
 
   public static void main(String[] args) {
 
+  }
+
+  public void addLineNeighbor(String line, Node<Station> u) {
+    List<String> lines = new ArrayList<>();
+    if(!this.lineNeighbors.get(line).isEmpty()) {
+      lines = this.lineNeighbors.get(line);
+      lines.add(u.getNodeName());
+    } else {
+      lines.add(u.getNodeName());
+    }
+    this.lineNeighbors.put(line, lines);
+  }
+
+
+  public List<String> getLink(Station u) {
+    List<String> links = new ArrayList<>();
+    Iterator<String> iterator = this.metros.iterator();
+    while(iterator.hasNext()) {
+      String line = iterator.next();
+      if(u.getMetros().contains(line) && this.lineNeighbors.get(line).contains(u.getNodeName())) {
+        links.add(line);
+      }
+    }
+    return links;
+  }
+
+
+  public Map<String, List<String>> getLineNeighbors() {
+    return lineNeighbors;
   }
 
   @Override

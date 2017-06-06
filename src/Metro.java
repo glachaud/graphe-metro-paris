@@ -54,18 +54,15 @@ public class Metro {
     Node<Station> node;
 
     LinkedHashMap linkedHashMap = (LinkedHashMap) map.get("stations");
-//    System.out.println(linkedHashMap);
     Iterator iterator = linkedHashMap.values().iterator();
     while (iterator.hasNext()) {
       LinkedHashMap linkedHashMap1 = (LinkedHashMap) iterator.next();
-      String type = linkedHashMap1.get("type").toString();
       LinkedHashMap lignes = (LinkedHashMap) linkedHashMap1.get("lignes");
       ArrayList metros = (ArrayList) lignes.get("metro");
       if (metros != null) {
         Integer id = Integer.parseInt(linkedHashMap1.get("num").toString());
         Double lat = Double.parseDouble(linkedHashMap1.get("lat").toString());
         Double lng = Double.parseDouble(linkedHashMap1.get("lng").toString());
-        Boolean isHub = Boolean.parseBoolean(linkedHashMap1.get("isHub").toString());
         String nom = linkedHashMap1.get("nom").toString();
         metroNode = new Station(id, nom, metros, lat, lng);
         node = new Node(metroNode);
@@ -88,12 +85,12 @@ public class Metro {
           while (iterator.hasNext()) {
             Integer arret = Integer.parseInt(iterator.next().toString());
             Node<Station> head = getNode(arret);
-            Edge<Station> edge = new Edge(ligne, tail, head);
             if (isWeighted) {
               metroGraph.addWeightedEdge(tail, head, getDistance(tail, head));
             } else {
               metroGraph.addWeightedEdge(tail, head, 1d);
             }
+            tail.getNode().addLineNeighbor(ligne, head);
             tail = head;
           }
         }
@@ -141,21 +138,44 @@ public class Metro {
     this.metroGraph = metroGraph;
   }
 
+  public void printGraph(Stack<Node<Station>> stack, String fileName) throws java.io.IOException {
+    PrintWriter printWriter = new PrintWriter(fileName, "UTF-8");
+    Node<Station> tail;
+    List<String> links;
+    if (!stack.isEmpty()) {
+      tail = stack.pop();
+      printWriter.println(tail.getNodeName());
+      while (!stack.isEmpty()) {
+        Node<Station> head = stack.pop();
+        links = tail.getNode().getLink(head.getNode());
+        printWriter.println(links);
+        printWriter.println(head.getNodeName());
 
-  public static void main(String[] args) {
+        tail = head;
+      }
+    }
+    printWriter.close();
+  }
+
+
+  public static void main(String[] args) throws java.io.IOException{
     Metro metroWeighted = new Metro("src/reseau.json", true);
     GraphList<Station> graphWeighted = metroWeighted.getMetroGraph();
+
 
     Metro metroUnweighted = new Metro("src/reseau.json", false);
     GraphList<Station> graphUnweighted = metroUnweighted.getMetroGraph();
 
 
     Stack<Node<Station>> longestWeightedPath = (Stack<Node<Station>>) LongestPath.getLongestPathWeighted(graphWeighted).keySet().toArray()[0];
-    Iterator<Node<Station>> weightedIterator = longestWeightedPath.iterator();
-
 
     Stack<Node<Station>> longestUnWeightedPath = (Stack<Node<Station>>) LongestPath.getLongestPathUnweighted(graphWeighted).keySet().toArray()[0];
-    Iterator<Node<Station>> unweightedIterator = longestUnWeightedPath.iterator();
+    metroWeighted.printGraph(longestUnWeightedPath, "src/bobbi.txt");
+
+    String distanceWeighted = "The distance of the longest weighted path is: " + LongestPath.getLongestPathWeighted(graphWeighted).values().toArray()[0] + " km";
+    String distanceUnweighted = "The distance of the longest unweighted path is: " + LongestPath.getLongestPathUnweighted(graphUnweighted).values().toArray()[0] +" stations";
+    System.out.println(distanceWeighted);
+    System.out.println(distanceUnweighted);
 
 
 
@@ -174,33 +194,20 @@ public class Metro {
     Double[] eccentricitesWeighted = Arrays.copyOf(sorted_map_weighted.values().toArray(), sorted_map_weighted.keySet().size(), Double[].class);
 
     try {
-      PrintWriter longestWeightedPathWriter = new PrintWriter("longest-weighted-path.txt", "UTF-8");
-      String distanceWeighted = "The distance of the longest weighted path is: " + LongestPath.getLongestPathWeighted(graphWeighted).values().toArray()[0];
-      longestWeightedPathWriter.println(distanceWeighted);
-      while(weightedIterator.hasNext()) {
-        Node<Station> node = weightedIterator.next();
-        longestWeightedPathWriter.println(node.getNodeName());
-      }
-      longestWeightedPathWriter.close();
+      metroWeighted.printGraph(longestWeightedPath, "results/longest-weighted-path.txt");
 
-      PrintWriter longestUnweightedPathWriter = new PrintWriter("longest-unweighted-path.txt", "UTF-8");
-      String distanceUnweighted = "The distance of the longest weighted path is: " + LongestPath.getLongestPathUnweighted(graphUnweighted).values().toArray()[0];
-      longestUnweightedPathWriter.println(distanceUnweighted);
-      while(unweightedIterator.hasNext()) {
-        Node<Station> node = unweightedIterator.next();
-        longestUnweightedPathWriter.println(node.getNodeName());
-      }
-      longestUnweightedPathWriter.close();
+      longestUnWeightedPath = (Stack<Node<Station>>) LongestPath.getLongestPathUnweighted(graphWeighted).keySet().toArray()[0];
+      metroUnweighted.printGraph(longestUnWeightedPath, "results/longest-unweighted-path.txt");
 
 
-      PrintWriter writerUnweighted = new PrintWriter("edge-eccentricity-unweighted.txt", "UTF-8");
+      PrintWriter writerUnweighted = new PrintWriter("results/edge-eccentricity-unweighted.txt", "UTF-8");
       for (int i = 0; i < edgesUnweighted.length; i++) {
         writerUnweighted.println(edgesUnweighted[i] + ": " + eccentricitiesUnweighted[i]);
       }
       writerUnweighted.close();
 
 
-      PrintWriter writerWeighted = new PrintWriter("edge-eccentricity-weighted.txt", "UTF-8");
+      PrintWriter writerWeighted = new PrintWriter("results/edge-eccentricity-weighted.txt", "UTF-8");
 
       for (int i = 0; i < edgesWeighted.length; i++) {
         writerWeighted.println(edgesWeighted[i] + ": " + eccentricitesWeighted[i]);

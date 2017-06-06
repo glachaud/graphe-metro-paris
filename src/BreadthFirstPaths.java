@@ -63,7 +63,7 @@ public class BreadthFirstPaths<T> {
         if (!lastNode.containsKey(v) && distTo.get(v) < distTo.get(neighbor)) {
           lastNode.put(v, neighboringEdge);
         }
-        if(previousNodes.containsKey(neighbor)) {
+        if (previousNodes.containsKey(neighbor)) {
           Map<Node<T>, Edge<T>> mergeMap = new HashMap<>();
           mergeMap.putAll(previousNodes.get(neighbor));
           mergeMap.putAll(lastNode);
@@ -129,10 +129,7 @@ public class BreadthFirstPaths<T> {
   }
 
   public boolean hasPathTo(Node v) {
-    if (marked.containsKey(v)) {
-      return marked.get(v);
-    }
-    return false;
+    return distTo.get(v) < Double.POSITIVE_INFINITY;
   }
 
   public Stack<Node> pathTo(Node v) {
