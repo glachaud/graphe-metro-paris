@@ -45,7 +45,7 @@ public class GraphList<T> {
     }
 
   }
-  
+
 
   public Node getNode(T nodeName) {
     Iterator<Node<T>> iterator = adj.iterator();
