@@ -1,0 +1,35 @@
+The distance of the longest weighted path is: 25.574668116573616
+Saint-Denis-Universite
+Basilique de Saint-Denis
+Saint-Denis-Porte de Paris
+Carrefour-Pleyel
+Mairie de Saint-Ouen
+Garibaldi
+Porte de Saint-Ouen
+Guy-Môquet
+La Fourche
+Place de Clichy
+Liège
+Saint-Lazare
+Havre-Caumartin
+Opéra
+Pyramides
+Palais-Royal (Musée du Louvre)
+Louvre-Rivoli
+Châtelet
+Gare de Lyon
+Bercy
+Dugommier
+Daumesnil (Félix Eboué)
+Michel Bizot
+Porte Dorée
+Porte de Charenton
+Liberté
+Charenton-Ecoles
+Ecole Vétérinaire de Maisons-Alfort
+Maisons-Alfort-Stade
+Maisons-Alfort-Les Juilliottes
+Créteil-L'Echat (Hôpital Henri Mondor)
+Créteil-Université
+Créteil-Préfecture (Hôtel de Ville)
+Pointe du Lac

@@ -143,33 +143,56 @@ public class Metro {
 
 
   public static void main(String[] args) {
-    Metro metro = new Metro("src/reseau.json", true);
-    GraphList<Station> graph = metro.getMetroGraph();
+    Metro metroWeighted = new Metro("src/reseau.json", true);
+    GraphList<Station> graphWeighted = metroWeighted.getMetroGraph();
 
-    Stack<Node<Station>> nodeStack = LongestPath.getLongestPathWeighted(graph);
-    Iterator<Node<Station>> nodeIterator = nodeStack.iterator();
-    while(nodeIterator.hasNext()) {
-      Node<Station> node = nodeIterator.next();
-      System.out.println(node.getNodeName());
-    }
+    Metro metroUnweighted = new Metro("src/reseau.json", false);
+    GraphList<Station> graphUnweighted = metroUnweighted.getMetroGraph();
 
 
+    Stack<Node<Station>> longestWeightedPath = (Stack<Node<Station>>) LongestPath.getLongestPathWeighted(graphWeighted).keySet().toArray()[0];
+    Iterator<Node<Station>> weightedIterator = longestWeightedPath.iterator();
 
-    Map<Edge<Station>, Double> edgeEccentricityUnweighted = MapCluster.getUnweightedCluster(metro.getMetroGraph());
+
+    Stack<Node<Station>> longestUnWeightedPath = (Stack<Node<Station>>) LongestPath.getLongestPathUnweighted(graphWeighted).keySet().toArray()[0];
+    Iterator<Node<Station>> unweightedIterator = longestUnWeightedPath.iterator();
+
+
+
+    Map<Edge<Station>, Double> edgeEccentricityUnweighted = MapCluster.getUnweightedCluster(graphUnweighted);
     ValueComparator bvc = new ValueComparator(edgeEccentricityUnweighted);
-    TreeMap<Edge<Station>, Double> sorted_map = new TreeMap<Edge<Station>, Double>(bvc);
-    sorted_map.putAll(edgeEccentricityUnweighted);
-    Edge[] edgesUnweighted = Arrays.copyOf(sorted_map.keySet().toArray(), sorted_map.keySet().size(), Edge[].class);
-    Double[] eccentricitiesUnweighted = Arrays.copyOf(sorted_map.values().toArray(), sorted_map.keySet().size(), Double[].class);
+    TreeMap<Edge<Station>, Double> sorted_map_unweighted = new TreeMap<Edge<Station>, Double>(bvc);
+    sorted_map_unweighted.putAll(edgeEccentricityUnweighted);
+    Edge[] edgesUnweighted = Arrays.copyOf(sorted_map_unweighted.keySet().toArray(), sorted_map_unweighted.keySet().size(), Edge[].class);
+    Double[] eccentricitiesUnweighted = Arrays.copyOf(sorted_map_unweighted.values().toArray(), sorted_map_unweighted.keySet().size(), Double[].class);
 
-    Map<Edge<Station>, Double> edgeEccentricityWeighted = MapCluster.getWeigthedCluster(graph);
+    Map<Edge<Station>, Double> edgeEccentricityWeighted = MapCluster.getWeigthedCluster(graphWeighted);
     ValueComparator bvc2 = new ValueComparator(edgeEccentricityWeighted);
-    TreeMap<Edge<Station>, Double> sorted_map2 = new TreeMap<Edge<Station>, Double>(bvc2);
-    sorted_map2.putAll(edgeEccentricityWeighted);
-    Edge[] edgesWeighted = Arrays.copyOf(sorted_map2.keySet().toArray(), sorted_map2.keySet().size(), Edge[].class);
-    Double[] eccentricitesWeighted = Arrays.copyOf(sorted_map2.values().toArray(), sorted_map2.keySet().size(), Double[].class);
+    TreeMap<Edge<Station>, Double> sorted_map_weighted = new TreeMap<Edge<Station>, Double>(bvc2);
+    sorted_map_weighted.putAll(edgeEccentricityWeighted);
+    Edge[] edgesWeighted = Arrays.copyOf(sorted_map_weighted.keySet().toArray(), sorted_map_weighted.keySet().size(), Edge[].class);
+    Double[] eccentricitesWeighted = Arrays.copyOf(sorted_map_weighted.values().toArray(), sorted_map_weighted.keySet().size(), Double[].class);
 
     try {
+      PrintWriter longestWeightedPathWriter = new PrintWriter("longest-weighted-path.txt", "UTF-8");
+      String distanceWeighted = "The distance of the longest weighted path is: " + LongestPath.getLongestPathWeighted(graphWeighted).values().toArray()[0];
+      longestWeightedPathWriter.println(distanceWeighted);
+      while(weightedIterator.hasNext()) {
+        Node<Station> node = weightedIterator.next();
+        longestWeightedPathWriter.println(node.getNodeName());
+      }
+      longestWeightedPathWriter.close();
+
+      PrintWriter longestUnweightedPathWriter = new PrintWriter("longest-unweighted-path.txt", "UTF-8");
+      String distanceUnweighted = "The distance of the longest weighted path is: " + LongestPath.getLongestPathUnweighted(graphUnweighted).values().toArray()[0];
+      longestUnweightedPathWriter.println(distanceUnweighted);
+      while(unweightedIterator.hasNext()) {
+        Node<Station> node = unweightedIterator.next();
+        longestUnweightedPathWriter.println(node.getNodeName());
+      }
+      longestUnweightedPathWriter.close();
+
+
       PrintWriter writerUnweighted = new PrintWriter("edge-eccentricity-unweighted.txt", "UTF-8");
       for (int i = 0; i < edgesUnweighted.length; i++) {
         writerUnweighted.println(edgesUnweighted[i] + ": " + eccentricitiesUnweighted[i]);

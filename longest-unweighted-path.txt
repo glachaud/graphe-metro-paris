@@ -1,0 +1,36 @@
+The distance of the longest weighted path is: 34.0
+Pointe du Lac
+Créteil-Préfecture (Hôtel de Ville)
+Créteil-Université
+Créteil-L'Echat (Hôpital Henri Mondor)
+Maisons-Alfort-Les Juilliottes
+Maisons-Alfort-Stade
+Ecole Vétérinaire de Maisons-Alfort
+Charenton-Ecoles
+Liberté
+Porte de Charenton
+Porte Dorée
+Michel Bizot
+Daumesnil (Félix Eboué)
+Montgallet
+Reuilly-Diderot
+Gare de Lyon
+Châtelet
+Pyramides
+Madeleine
+Concorde
+Invalides
+La Tour-Maubourg
+Ecole Militaire
+La Motte-Picquet-Grenelle
+Avenue Emile-Zola
+Charles Michels
+Javel-André-Citroen
+Mirabeau
+Chardon-Lagache
+Michel-Ange-Molitor
+Exelmans
+Porte de Saint-Cloud
+Marcel Sembat
+Billancourt
+Pont de Sèvres

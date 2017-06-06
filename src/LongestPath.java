@@ -1,17 +1,15 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * Created by guillaumelachaud on 6/6/17.
  */
 public class LongestPath {
 
-  public static Stack<Node<Station>> getLongestPathWeighted(GraphList<Station> metroGraph) {
+  public static Map<Stack<Node<Station>>, Double> getLongestPathWeighted(GraphList<Station> metroGraph) {
 
     Double distance = 0d;
-    Stack<Node<Station>> longestPath = new Stack();
+    Stack<Node<Station>> longestPathStack = new Stack<>();
+    Map<Stack<Node<Station>>, Double> longestPath = new HashMap<Stack<Node<Station>>, Double>();
 
     ArrayList<Node<Station>> allStations = metroGraph.getAdjList();
     Iterator<Node<Station>> stations = allStations.iterator();
@@ -30,19 +28,20 @@ public class LongestPath {
         Double dijsktraSPDistance = dijkstraSP.distTo(dijkstraSPKey);
         if (dijsktraSPDistance > distance) {
           distance = dijsktraSPDistance;
-          longestPath = dijkstraSP.shortestPathTo(dijkstraSPKey);
+          longestPathStack = dijkstraSP.shortestPathTo(dijkstraSPKey);
         }
       }
     }
-    System.out.println("The distance of the longest weighted path is: " + distance);
+    longestPath.put(longestPathStack, distance);
 
     return longestPath;
   }
 
-  public static Stack<Node<Station>> getLongestPathUnweighted(GraphList<Station> metroGraph) {
+  public static Map<Stack<Node<Station>>, Double> getLongestPathUnweighted(GraphList<Station> metroGraph) {
 
     Double distance = 0d;
-    Stack<Node<Station>> longestPath = new Stack();
+    Stack<Node<Station>> longestPathStack = new Stack<>();
+    Map<Stack<Node<Station>>, Double> longestPath = new HashMap<Stack<Node<Station>>, Double>();
 
     ArrayList<Node<Station>> allStations = metroGraph.getAdjList();
     Iterator<Node<Station>> stations = allStations.iterator();
@@ -62,11 +61,11 @@ public class LongestPath {
         if (bfsDistance > distance) {
           distance = bfsDistance;
           Node<Station> nodeTo = (Node<Station>) bfsPath.getEdgeTo().get(bfsPathKey);
-          longestPath = bfsPath.pathTo(bfsPathKey);
+          longestPathStack = bfsPath.pathTo(bfsPathKey);
         }
       }
     }
-    System.out.println("The distance of the longest unweighted path is: " + distance);
+    longestPath.put(longestPathStack, distance);
 
     return longestPath;
   }
