@@ -170,7 +170,6 @@ public class Metro {
     Stack<Node<Station>> longestWeightedPath = (Stack<Node<Station>>) LongestPath.getLongestPathWeighted(graphWeighted).keySet().toArray()[0];
 
     Stack<Node<Station>> longestUnWeightedPath = (Stack<Node<Station>>) LongestPath.getLongestPathUnweighted(graphWeighted).keySet().toArray()[0];
-    metroWeighted.printGraph(longestUnWeightedPath, "src/bobbi.txt");
 
     String distanceWeighted = "The distance of the longest weighted path is: " + LongestPath.getLongestPathWeighted(graphWeighted).values().toArray()[0] + " km";
     String distanceUnweighted = "The distance of the longest unweighted path is: " + LongestPath.getLongestPathUnweighted(graphUnweighted).values().toArray()[0] +" stations";
