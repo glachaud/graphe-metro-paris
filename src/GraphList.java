@@ -30,13 +30,39 @@ public class GraphList<T> {
     if (adj.indexOf(u) > -1 && adj.indexOf(v) > -1) {
       Iterator<Edge<T>> edgeIterator = u.getNeighbors().iterator();
       Boolean exists = false;
-      while(edgeIterator.hasNext()) {
+      while (edgeIterator.hasNext()) {
         Edge<T> edge = edgeIterator.next();
         if (edge.equals(newEdge)) {
-          exists= true;
+          exists = true;
         }
       }
-      if(!exists) {
+      if (!exists) {
+        adj.get(adj.indexOf(u)).addEdge(newEdge);
+        edgeCount++;
+      }
+    } else {
+      System.out.println("This edge couldn't be added to the graph");
+    }
+
+  }
+
+  public void addWeightedStation(Node u, Node v, Double weight, String line) {
+    Edge newEdge = new Edge(u, v, weight);
+    newEdge.addLine(line);
+    if (adj.indexOf(u) > -1 && adj.indexOf(v) > -1) {
+      Iterator<Edge<T>> edgeIterator = u.getNeighbors().iterator();
+      Boolean exists = false;
+      while (edgeIterator.hasNext()) {
+        Edge<T> edge = edgeIterator.next();
+        if (edge.equals(newEdge)) {
+          exists = true;
+          if (edge.getLines().indexOf(line) > -1) {
+          } else {
+            edge.addLine(line);
+          }
+        }
+      }
+      if (!exists) {
         adj.get(adj.indexOf(u)).addEdge(newEdge);
         edgeCount++;
       }
@@ -92,13 +118,13 @@ public class GraphList<T> {
 
   }
 
-  public ArrayList<Edge<T>> getAllEdges(){
+  public ArrayList<Edge<T>> getAllEdges() {
     ArrayList<Edge<T>> graphEdges = new ArrayList<>();
     Iterator<Node<T>> nodeIterator = adj.iterator();
-    while(nodeIterator.hasNext()){
+    while (nodeIterator.hasNext()) {
       Node nodeIteration = nodeIterator.next();
       Iterator<Edge<T>> edgeIterator = nodeIteration.getNeighbors().iterator();
-      while(edgeIterator.hasNext()){
+      while (edgeIterator.hasNext()) {
         Edge<T> edgeIteration = edgeIterator.next();
         graphEdges.add(edgeIteration);
       }

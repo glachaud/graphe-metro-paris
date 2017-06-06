@@ -1,5 +1,8 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Edge<T> implements Comparable<Edge> {
-  String ligne;
+  List<String> lines;
   Node<T> tail;
   Node<T> head;
   double weight;
@@ -15,20 +18,26 @@ public class Edge<T> implements Comparable<Edge> {
   }
 
   public Edge(String ligne, Node u, Node v) {
-    this.ligne = ligne;
+    this.lines = new ArrayList<String>();
+    this.lines.add(ligne);
     this.tail = u;
     this.head = v;
   }
 
   public Edge(String ligne, Node u, Node v, double weight) {
-    this.ligne = ligne;
+    this.lines = new ArrayList<String>();
+    this.lines.add(ligne);
     this.tail = u;
     this.head = v;
     this.weight = weight;
   }
 
-  public String getLigne() {
-    return ligne;
+  public List<String> getLines() {
+    return lines;
+  }
+
+  public void addLine(String line){
+    this.lines.add(line);
   }
 
   public Node<T> getTail() {

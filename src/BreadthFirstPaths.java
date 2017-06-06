@@ -10,7 +10,6 @@ public class BreadthFirstPaths<T> {
   private final Node s;
   Map<Node<T>, Map<Node<T>, Edge<T>>> previousNodes;
   Map<Edge<T>, Double> edgeEccentricity;
-  Map<Edge<T>, Boolean> edgesVisited;
 
   public BreadthFirstPaths(GraphList G, Node s) {
     marked = new HashMap<>();
@@ -19,7 +18,6 @@ public class BreadthFirstPaths<T> {
     previousNodes = new HashMap<>();
 
     edgeEccentricity = new HashMap<>();
-    edgesVisited = new HashMap<>();
     this.s = s;
     bfs(G, s);
   }
@@ -33,55 +31,45 @@ public class BreadthFirstPaths<T> {
     distTo.put(s, distance);
     queue.add(s);
 
-    Iterator<Edge<T>> edgeIterator9 = G.getAllEdges().iterator();
-    while (edgeIterator9.hasNext()) {
-      Edge<T> edge9 = edgeIterator9.next();
-      edgesVisited.put(edge9, false);
-    }
 
     while (!queue.isEmpty()) {
       Node<T> v = queue.remove();
-      Iterator<Edge<T>> iterator = v.getNeighbors().iterator();
-      while (iterator.hasNext()) {
+      Iterator<Edge<T>> neighbors = v.getNeighbors().iterator();
+      while (neighbors.hasNext()) {
         lastNode = new HashMap<>();
-        Edge<T> edgeIteration = iterator.next();
-        Node<T> nodeIteration = edgeIteration.getHead();
-        if (!marked.containsKey(nodeIteration)) {
-          if (!distTo.containsKey(nodeIteration)) {
-            distTo.put(nodeIteration, distTo.get(v) + 1);
+        Edge<T> neighboringEdge = neighbors.next();
+        Node<T> neighbor = neighboringEdge.getHead();
+        if (!marked.containsKey(neighbor)) {
+          if (!distTo.containsKey(neighbor)) {
+            distTo.put(neighbor, distTo.get(v) + 1);
           }
-          edgeTo.put(nodeIteration, v);
-          marked.put(nodeIteration, true);
-          queue.add(nodeIteration);
+          edgeTo.put(neighbor, v);
+          marked.put(neighbor, true);
+          queue.add(neighbor);
         }
-        Iterator<Edge<T>> edgeIterator = nodeIteration.getNeighbors().iterator();
-        while (edgeIterator.hasNext()) {
-          Edge<T> edge = edgeIterator.next();
+        Iterator<Edge<T>> edges = neighbor.getNeighbors().iterator();
+        while (edges.hasNext()) {
+          Edge<T> edge = edges.next();
           Node<T> node = edge.getHead();
           Edge<T> reversedEdge = edge;
-          Iterator<Edge<T>> edgeIterator1 = node.getNeighbors().iterator();
-          while (edgeIterator1.hasNext()) {
-            reversedEdge = edgeIterator1.next();
+          Iterator<Edge<T>> edgeReverserIterator = node.getNeighbors().iterator();
+          while (edgeReverserIterator.hasNext()) {
+            reversedEdge = edgeReverserIterator.next();
             if (reversedEdge.getTail() == edge.getHead() && reversedEdge.getHead() == edge.getTail()) {
               break;
             }
           }
-          if (distTo.containsKey(node) && distTo.get(node) < distTo.get(nodeIteration)) {
-            if(nodeIteration.getNodeName().equals("Porte d'Auteuil")) {
-              lastNode.put(node, reversedEdge);
-            }
-          }
         }
-        if (!lastNode.containsKey(v) && distTo.get(v) < distTo.get(nodeIteration) && !nodeIteration.equals(s)) {
-          lastNode.put(v, edgeIteration);
+        if (!lastNode.containsKey(v) && distTo.get(v) < distTo.get(neighbor)) {
+          lastNode.put(v, neighboringEdge);
         }
-        if(previousNodes.containsKey(nodeIteration)) {
+        if(previousNodes.containsKey(neighbor)) {
           Map<Node<T>, Edge<T>> mergeMap = new HashMap<>();
-          mergeMap.putAll(previousNodes.get(nodeIteration));
+          mergeMap.putAll(previousNodes.get(neighbor));
           mergeMap.putAll(lastNode);
-          previousNodes.put(nodeIteration, mergeMap);
+          previousNodes.put(neighbor, mergeMap);
         } else {
-          previousNodes.put(nodeIteration, lastNode);
+          previousNodes.put(neighbor, lastNode);
         }
       }
     }
@@ -89,41 +77,37 @@ public class BreadthFirstPaths<T> {
   }
 
 
-  private void updateEdgeEccentricity(Node<T> node, Double number) {
+  private void updateEdgeEccentricity(Node<T> station, Double number) {
 
-    Double distance = distTo.get(node);
+    Double distance = distTo.get(station);
     if (distance == 0) {
     } else if (distance == 1) {
-      Set<Node<T>> nodes = previousNodes.get(node).keySet();
+      Set<Node<T>> nodes = previousNodes.get(station).keySet();
       Double size = (double) nodes.size() * number;
       Iterator<Node<T>> nodeIterator = nodes.iterator();
       while (nodeIterator.hasNext()) {
-        Node<T> tNode = nodeIterator.next();
-        Edge<T> edge = previousNodes.get(node).get(tNode);
+        Node<T> node = nodeIterator.next();
+        Edge<T> edge = previousNodes.get(station).get(node);
         if (edgeEccentricity.containsKey(edge)) {
           edgeEccentricity.put(edge, edgeEccentricity.get(edge) + 1 / size);
-          edgesVisited.put(edge, true);
         } else {
           edgeEccentricity.put(edge, 1 / size);
-          edgesVisited.put(edge, true);
         }
       }
     } else if (distance > 1) {
-      Set<Node<T>> nodes = previousNodes.get(node).keySet();
+      Set<Node<T>> nodes = previousNodes.get(station).keySet();
       Double size = (double) nodes.size() * number;
       Iterator<Node<T>> nodeIterator = nodes.iterator();
       while (nodeIterator.hasNext()) {
-        Node<T> tNode = nodeIterator.next();
-        Edge<T> edge = previousNodes.get(node).get(tNode);
-        if (distTo.get(tNode) < distTo.get(node)) {
+        Node<T> node = nodeIterator.next();
+        Edge<T> edge = previousNodes.get(station).get(node);
+        if (distTo.get(node) < distTo.get(station)) {
           if (edgeEccentricity.containsKey(edge)) {
             edgeEccentricity.put(edge, edgeEccentricity.get(edge) + (1 / size));
-            edgesVisited.put(edge, true);
           } else {
             edgeEccentricity.put(edge, 1 / size);
-            edgesVisited.put(edge, true);
           }
-          updateEdgeEccentricity(tNode, size);
+          updateEdgeEccentricity(node, size);
         }
       }
     }
@@ -178,9 +162,6 @@ public class BreadthFirstPaths<T> {
     return edgeTo;
   }
 
-  public Map<Edge<T>, Boolean> getEdgesVisited() {
-    return edgesVisited;
-  }
 
   public Map<Edge<T>, Double> getEdgeEccentricity() {
     return edgeEccentricity;
